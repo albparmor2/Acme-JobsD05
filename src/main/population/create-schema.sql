@@ -265,7 +265,7 @@
         `moment` datetime(6),
         `title` varchar(255),
         `users` varchar(255),
-        `authenticated_id` integer not null,
+        `creator_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -419,8 +419,8 @@ create index IDX1e6yyalrv1ka0w3g229hjwy6o on `requesta` (`ticker`);
        references `user_account` (`id`);
 
     alter table `thread` 
-       add constraint `FKkoj53cnb5t2fhfm33gb9bvff1` 
-       foreign key (`authenticated_id`) 
+       add constraint `FKi6qpt5u0ti53aogdftkunyp6r` 
+       foreign key (`creator_id`) 
        references `authenticated` (`id`);
 
     alter table `worker` 

@@ -15,7 +15,7 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 	@Query("select m from Message m where m.id = ?1")
 	Message findOneById(int id);
 
-	@Query("select t.authenticated.userAccount.id from Thread t where t.id = ?1")
+	@Query("select t.creator.userAccount.id from Thread t where t.id = ?1")
 	Integer findUserIdByid(int id);
 
 	@Query("select m from Message m join m.thread t where t.id = ?1")

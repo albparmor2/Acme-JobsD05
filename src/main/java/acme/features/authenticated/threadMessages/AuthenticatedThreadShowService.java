@@ -36,7 +36,7 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 		authenticatedId = principal.getAccountId();
 		usersId = this.repository.findManyUsersId(request.getModel().getInteger("id"));
 		thread = this.repository.findOneById(request.getModel().getInteger("id"));
-		result = thread.getAuthenticated().getUserAccount().getId() == authenticatedId || usersId.contains(principal.getAccountId());
+		result = thread.getCreator().getUserAccount().getId() == authenticatedId || usersId.contains(principal.getAccountId());
 		return result;
 	}
 

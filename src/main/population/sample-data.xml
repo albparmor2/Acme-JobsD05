@@ -655,21 +655,21 @@
  <bean id="thread01" class="acme.entities.messageThread.Thread">
  	<property name="title" value="cadena de prueba"/>
  	<property name="moment" value="2018/10/10 19:10"/>
- 	<property name="authenticated" ref="authenticated1Authenticated"/>
+ 	<property name="creator" ref="authenticated1Authenticated"/>
  	
  </bean> 
  
   <bean id="thread02" class="acme.entities.messageThread.Thread">
  	<property name="title" value="cadena de prueba 2"/>
  	<property name="moment" value="2018/10/10 19:10"/>
- 	<property name="authenticated" ref="auditor1Authenticated"/>
+ 	<property name="creator" ref="auditor1Authenticated"/>
 
  </bean> 
  
   <bean id="thread03" class="acme.entities.messageThread.Thread">
  	<property name="title" value="cadena de prueba 3"/>
  	<property name="moment" value="2018/10/10 19:10"/>
- 	<property name="authenticated" ref="sponsor1Authenticated"/>
+ 	<property name="creator" ref="sponsor1Authenticated"/>
     
  </bean> 
 

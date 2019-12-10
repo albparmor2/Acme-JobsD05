@@ -19,7 +19,7 @@ public interface AuthenticatedThreadRepository extends AbstractRepository {
 	@Query("select distinct m.authenticated.userAccount.id from Message m where m.thread.id = ?1")
 	Collection<Integer> findManyUsersId(int threadId);
 
-	@Query("select distinct m.thread from Message m where m.authenticated.id = ?1 or m.thread.authenticated.id = ?1")
+	@Query("select distinct m.thread from Message m where m.authenticated.id = ?1 or m.thread.creator.id = ?1")
 	Collection<Thread> findManyByAuthenticatedId(int id);
 
 	@Query("select distinct m.authenticated.userAccount.username from Message m where m.thread.id = ?1")

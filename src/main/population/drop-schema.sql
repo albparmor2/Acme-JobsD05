@@ -77,7 +77,7 @@
 
     alter table `thread` 
        drop 
-       foreign key `FKkoj53cnb5t2fhfm33gb9bvff1`;
+       foreign key `FKi6qpt5u0ti53aogdftkunyp6r`;
 
     alter table `worker` 
        drop 

@@ -33,11 +33,11 @@ public class Thread extends DomainEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	private Date				moment;
-  
+
 	private String				users;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Authenticated		authenticated;
+	private Authenticated		creator;
 }
