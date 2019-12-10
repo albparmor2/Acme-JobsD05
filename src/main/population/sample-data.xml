@@ -223,14 +223,17 @@
 <!-- Descriptors -->
 <bean id="descriptor1" class="acme.entities.jobs.Descriptor">
    <property name="description" value="Example description"/>
+   <property name="job" ref="job1"/>
 </bean>
 
 <bean id="descriptor2" class="acme.entities.jobs.Descriptor">
    <property name="description" value="Example description"/>
+   <property name="job" ref="job2"/>
 </bean>
 
 <bean id="descriptor3" class="acme.entities.jobs.Descriptor">
    <property name="description" value="Example description"/>
+   <property name="job" ref="job3"/>
 </bean>
 
 <!-- Jobs -->
@@ -242,7 +245,6 @@
    <property name="deadline" value="2030/12/11 23:59"/>
    <property name="salary" value="€ 15,000.98"/>
    <property name="moreInfo" value="http://www.example.com"/>
-   <property name="descriptor" ref="descriptor1"/>
    <property name="employer" ref="employer1Employer"/>
 </bean>
 
@@ -253,7 +255,6 @@
    <property name="deadline" value="2030/12/11 23:59"/>
    <property name="salary" value="€ 20,000.00"/>
    <property name="moreInfo" value="http://www.example.com"/>
-   <property name="descriptor" ref="descriptor2"/>
    <property name="employer" ref="employer1Employer"/>
 </bean>
 
@@ -264,7 +265,16 @@
    <property name="deadline" value="2030/12/11 23:59"/>
    <property name="salary" value="€ 20,000.00"/>
    <property name="moreInfo" value="http://www.example.com"/>
-   <property name="descriptor" ref="descriptor3"/>
+   <property name="employer" ref="employer2Employer"/>
+</bean>
+
+<bean name="job4" class="acme.entities.jobs.Job">
+   <property name="reference" value="EMP2-JOB4"/>
+   <property name="status" value="Published"/>
+   <property name="title" value="Title 3"/>
+   <property name="deadline" value="2030/12/11 23:59"/>
+   <property name="salary" value="€ 20,000.00"/>
+   <property name="moreInfo" value="http://www.example.com"/>
    <property name="employer" ref="employer2Employer"/>
 </bean>
 

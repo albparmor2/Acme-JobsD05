@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.job;
+package acme.features.worker.job;
 
 import java.util.Collection;
 import java.util.Date;
@@ -11,7 +11,7 @@ import acme.entities.jobs.Job;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedJobRepository extends AbstractRepository {
+public interface WorkerJobRepository extends AbstractRepository {
 
 	@Query("select j from Job j where j.id = ?1")
 	Job findOneJobById(int id);

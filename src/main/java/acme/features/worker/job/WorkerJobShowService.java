@@ -1,22 +1,22 @@
 
-package acme.features.authenticated.job;
+package acme.features.worker.job;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
+import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AuthenticatedJobShowService implements AbstractShowService<Authenticated, Job> {
+public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 
 	@Autowired
-	AuthenticatedJobRepository repository;
+	WorkerJobRepository repository;
 
 
 	@Override

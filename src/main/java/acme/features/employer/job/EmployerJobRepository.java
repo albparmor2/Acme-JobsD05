@@ -17,4 +17,7 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("select j from Job j where j.employer.id = ?1")
 	Collection<Job> findManyByEmployerId(int employerId);
+
+	@Query("select d.description from Descriptor d where d.job.id = ?1")
+	String findOneDescriptionOfDescriptorById(int id);
 }

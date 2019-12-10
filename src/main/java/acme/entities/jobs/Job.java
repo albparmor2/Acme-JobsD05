@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -61,6 +60,9 @@ public class Job extends DomainEntity {
 	@URL
 	private String				moreInfo;
 
+	//Será la descripción del descriptor al cual el trabajo este referenciado
+	private String				description;
+
 
 	@Transient
 	public boolean isFinalMode() {
@@ -74,11 +76,6 @@ public class Job extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@OneToOne(optional = false)
-	private Descriptor	descriptor;
-
-	@NotNull
-	@Valid
 	@ManyToOne(optional = false)
-	private Employer	employer;
+	private Employer employer;
 }

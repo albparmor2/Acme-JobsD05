@@ -1,39 +1,26 @@
 
-package acme.features.employer.duty;
+package acme.features.worker.duty;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Duty;
-import acme.entities.jobs.Job;
-import acme.entities.roles.Employer;
+import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class EmployerDutyShowService implements AbstractShowService<Employer, Duty> {
+public class WorkerDutyShowService implements AbstractShowService<Worker, Duty> {
 
 	@Autowired
-	EmployerDutyRepository repository;
+	WorkerDutyRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
-
-		boolean result;
-		int dutyId;
-		Job job;
-		Principal principal;
-
-		dutyId = request.getModel().getInteger("id");
-		job = this.repository.findJobByDutyId(dutyId);
-		principal = request.getPrincipal();
-		result = job.getEmployer().getUserAccount().getId() == principal.getAccountId();
-
-		return result;
+		return true;
 	}
 
 	@Override

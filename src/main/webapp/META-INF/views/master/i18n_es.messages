@@ -101,6 +101,7 @@ master.menu.employer.application.list-mine = Lista de solicitudes de mis trabajo
 
 master.menu.worker = Trabajador
 master.menu.worker.application.list-mine = Lista de mis peticiones
+master.menu.worker.jobs = Trabajos activos
 
 
 # master.menu.user-account ####################################################

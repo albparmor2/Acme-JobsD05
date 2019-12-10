@@ -22,7 +22,7 @@
 	<acme:form-moment code="employer.job.form.label.deadline" path="deadline"/>
 	<acme:form-money code="employer.job.form.label.salary" path="salary"/>
 	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo"/>
-	<acme:form-url code="employer.job.form.label.descriptor.description" path="descriptor.description"/>
+	<acme:form-textarea code="employer.job.form.label.description" path="description"/>
 		
   
   <a href=/acme-jobs/employer/duty/list?id=${id}><acme:message code="auditor.job.form.label.duty"/><a/>

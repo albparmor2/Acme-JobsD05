@@ -17,12 +17,11 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.job.form.label.reference" path="reference"/>
-	<acme:form-textbox code="authenticated.job.form.label.status" path="status"/>
 	<acme:form-textbox code="authenticated.job.form.label.title" path="title"/>
 	<acme:form-moment code="authenticated.job.form.label.deadline" path="deadline"/>
 	<acme:form-money code="authenticated.job.form.label.salary" path="salary"/>
 	<acme:form-url code="authenticated.job.form.label.moreInfo" path="moreInfo"/>
-	<acme:form-textarea code="authenticated.job.form.label.descriptor.description" path="descriptor.description"/>
+	<acme:form-textarea code="authenticated.job.form.label.description" path="description"/>
 	<acme:form/>
 	
 	<a href=/acme-jobs/authenticated/duty/list?id=${id}><acme:message code="authenticated.job.form.label.duty"/><a/>

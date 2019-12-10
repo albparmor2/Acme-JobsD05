@@ -45,8 +45,7 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo", "finalMode");
-
+		request.unbind(entity, model, "salary", "moreInfo", "description");
 	}
 
 	@Override
@@ -55,9 +54,12 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 
 		Job result;
 		int id;
+		String description;
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneJobById(id);
+		description = this.repository.findOneDescriptionOfDescriptorById(id);
+		result.setDescription(description);
 
 		return result;
 	}

@@ -14,7 +14,7 @@ employer.job.form.label.title = Título:
 employer.job.form.label.deadline = Fecha límite:
 employer.job.form.label.salary = Salario:
 employer.job.form.label.moreInfo = Más info:
-employer.job.form.label.descriptor.description = Descripción:
+employer.job.form.label.description = Descripción:
 employer.job.form.label.descriptor.mandatoryDuties = Deberes
 
 employer.job.form.button.return = Volver
