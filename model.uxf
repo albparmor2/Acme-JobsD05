@@ -875,7 +875,7 @@ Status
     <panel_attributes>lt=&lt;-x
 m1= 1
 m2=0..*
-Writed by &gt;</panel_attributes>
+Written by &gt;</panel_attributes>
     <additional_attributes>10.0;210.0;240.0;10.0</additional_attributes>
   </element>
   <element>
@@ -905,5 +905,19 @@ m1= 1
 m2=0..*
 Created by &gt;</panel_attributes>
     <additional_attributes>10.0;370.0;100.0;110.0;420.0;10.0;790.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>14</y>
+      <w>602</w>
+      <h>336</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=0..*
+m2=1..*
+&lt; Participate in </panel_attributes>
+    <additional_attributes>10.0;460.0;100.0;110.0;420.0;10.0;840.0;210.0</additional_attributes>
   </element>
 </diagram>
