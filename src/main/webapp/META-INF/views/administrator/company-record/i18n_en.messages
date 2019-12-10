@@ -1,0 +1,31 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.company-record.form.label.name = Name of the company:
+administrator.company-record.form.label.sector = Sector:
+administrator.company-record.form.label.CEO = CEO:
+administrator.company-record.form.label.activities = Activities:
+administrator.company-record.form.label.website = Website:
+administrator.company-record.form.label.contactPhone = Contact Phone:
+administrator.company-record.form.label.contactEmail = Contact Email:
+administrator.company-record.form.label.incorporated = Incorporated:
+administrator.company-record.form.label.stars = Stars:
+
+administrator.company-record.form.button.update = Update
+administrator.company-record.form.button.delete = Delete
+administrator.company-record.form.button.create = Create
+
+administrator.company-record.form.button.return = Return
+
+administrator.company-record.list.label.name = Name of the company
+administrator.company-record.list.label.sector = Sector
+administrator.company-record.list.label.stars = Stars
+
+acme.telephoneNumber.error.pattern = Phone number must adhere to the following pattern “+999 (9999) 999999”, where “+999” de-notes an optional international prefix in range “+1” up to “+999”, “(9999)” denotes an optional area code in range “(0)” up to “(9999)”, and “999999” denotes a local phone number with a minimum of six digits and a maximum of ten digits

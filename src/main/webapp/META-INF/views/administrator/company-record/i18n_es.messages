@@ -1,0 +1,34 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.company-record.form.label.name = Nombre de la compañía:
+administrator.company-record.form.label.sector = Sector:
+administrator.company-record.form.label.CEO = Director ejecutivo:
+administrator.company-record.form.label.activities = Actividades:
+administrator.company-record.form.label.website = Página web:
+administrator.company-record.form.label.contactPhone = Teléfono de contacto:
+administrator.company-record.form.label.contactEmail = Correo de contacto:
+administrator.company-record.form.label.incorporated = Incorporado:
+administrator.company-record.form.label.stars = Estrellas:
+
+administrator.company-record.form.button.update = Editar
+administrator.company-record.form.button.delete = Eliminar
+administrator.company-record.form.button.create = Crear
+
+administrator.company-record.form.button.return = Volver
+
+administrator.company-record.list.label.name = Nombre de la compañía
+administrator.company-record.list.label.sector = Sector
+administrator.company-record.list.label.stars = Estrellas
+
+acme.telephoneNumber.error.pattern = El número de teléfono debe adherirse al siguiente patrón “+999 (9999) 999999”,donde “+999” denota un prefijo internacional opcional desde “+1” hasta “+999”,
+                                     “(9999)” denota un código de área opcional en rango desde “(0)” hasta “(9999)”,
+                                     y “999999” denota un número de teléfono local con un mínimo de 6 dígitos y un máximo
+                                     de 10 dígitos

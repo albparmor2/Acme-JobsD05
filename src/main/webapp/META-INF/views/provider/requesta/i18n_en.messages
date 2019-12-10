@@ -1,0 +1,22 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+provider.requesta.form.label.ticker = Ticker:
+provider.requesta.form.label.title = Title:
+provider.requesta.form.label.moment = Moment:
+provider.requesta.form.label.description = Description:
+provider.requesta.form.label.deadline = Deadline:
+provider.requesta.form.label.reward = Reward:
+provider.requesta.form.label.confirmRequesta = Confirm
+provider.requesta.form.button.return  = Return
+provider.requesta.form.button.create = Create
+	 
+provider.requesta.form.error.existRequest = There are any request with this ticker
+requesta.error.pattern = The ticker must begin with the letter R, followed by 4 letters, one hyphen and 5 digits

@@ -1,0 +1,29 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+consumer.offer.form.label.title = Title:
+consumer.offer.form.label.moment = Moment:
+consumer.offer.form.label.deadline = Deadline:
+consumer.offer.form.label.text = Text:
+consumer.offer.form.label.minReward = Minimum reward
+consumer.offer.form.label.maxReward = Maximum reward
+consumer.offer.form.label.ticker = Ticker
+consumer.offer.form.button.return= return
+consumer.offer.form.button.create = Create
+consumer.offer.form.label.confirmOffer = Confirm
+
+consumer.offer.list.label.moment = Moment
+consumer.offer.list.label.title = Title
+consumer.offer.list.label.deadline = Deadline
+consumer.offer.list.label.minReward = Minimum reward
+consumer.offer.list.label.maxReward = Maximum reward
+
+consumer.offer.form.error.existOffer = There are any offer with this ticker
+offer.error.pattern = The ticker must begin with the letter O, followed by 4 letters, one hyphen and 5 digits

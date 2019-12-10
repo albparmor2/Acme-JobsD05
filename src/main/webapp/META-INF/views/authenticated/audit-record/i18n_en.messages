@@ -1,0 +1,21 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.audit-record.form.label.title = Title:
+authenticated.audit-record.form.label.status = Status:
+authenticated.audit-record.form.label.creation = Creation:
+authenticated.audit-record.form.label.body = Body:
+authenticated.audit-record.form.label.job.reference = Job reference:
+authenticated.audit-record.form.label.job.title = Job title:
+
+authenticated.audit-record.form.button.return = Return
+
+authenticated.audit-record.list.label.title = Title
+authenticated.audit-record.list.label.creation = Creation

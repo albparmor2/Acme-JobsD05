@@ -1,0 +1,24 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.dashboard.form.label.totalAnnouncements = Total number of announcements:
+administrator.dashboard.form.label.totalCompanyRecords = Total number of company records:
+administrator.dashboard.form.label.totalInvestorRecords = Total number of investor records:
+administrator.dashboard.form.label.minRewardRequesta = Minimun reward of active requests:
+administrator.dashboard.form.label.maxRewardRequesta = Maximun reward of active requests:
+administrator.dashboard.form.label.averageRewardRequesta = Average of the rewards of active requests:
+administrator.dashboard.form.label.standardRewardRequesta = Standard deviation of the rewards of active requests:
+administrator.dashboard.form.label.minRewardOffer = Minimun reward of active offers:
+administrator.dashboard.form.label.maxRewardOffer = Maximun reward of active offers:
+administrator.dashboard.form.label.averageRewardOffer = Average of the rewards of active offers:
+administrator.dashboard.form.label.standardRewardOffer = Standard deviation of the rewards of active offers:
+administrator.dashboard.form.label.averageJobsEmployer = Average number of jobs per employer:
+administrator.dashboard.form.label.averageApplicationEmployer = Average number of applications per employer:
+administrator.dashboard.form.label.averageApplicationWorker = Average number of applications per worker:

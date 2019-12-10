@@ -1,0 +1,22 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+provider.requesta.form.label.ticker = Id:
+provider.requesta.form.label.title = Titulo:
+provider.requesta.form.label.moment = Momento:
+provider.requesta.form.label.description = Descripcion:
+provider.requesta.form.label.deadline = Fecha límite:
+provider.requesta.form.label.reward = Recompensa:
+provider.requesta.form.label.confirmRequesta = Confirmar
+provider.requesta.form.button.return  = Volver
+provider.requesta.form.button.create = Crear
+
+provider.requesta.form.error.existRequest = Ya existe alguna solicitud con esta id
+requesta.error.pattern = La id debe empezar por la letra R, seguido de 4 letras, un guión y 5 dígitos
