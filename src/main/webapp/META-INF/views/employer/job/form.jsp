@@ -31,6 +31,13 @@
 	<p></p>
 	<a href=/acme-jobs/employer/audit-record/list?id=${id}><acme:message code="employer.job.form.label.auditRecord"/></a>
 	<p></p>
+	<jstl:if test="${description == null}">
+	<a href=/acme-jobs/employer/descriptor/create?jobId=${id}><acme:message code="employer.job.form.label.descriptor.create"/></a>
+	</jstl:if>
+	<jstl:if test="${description != null && status == 'Draft'}">
+	<a href=/acme-jobs/employer/descriptor/update?jobId=${id}><acme:message code="employer.job.form.label.descriptor.update"/></a>
+	</jstl:if>
+	<p></p>
 	</jstl:if>
 	
 	<acme:form-submit test="${command == 'show' && status == 'Draft'}" code="employer.job.form.button.update"
