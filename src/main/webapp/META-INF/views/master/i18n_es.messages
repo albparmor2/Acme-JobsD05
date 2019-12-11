@@ -95,6 +95,7 @@ master.menu.auditor.other-jobs = Trabajos sin registros de auditorías míos
 
 master.menu.employer = Empleador
 master.menu.employer.job.list-mine = Mis trabajos
+master.menu.employer.job.create = Crear trabajo
 master.menu.employer.application.list-mine = Lista de solicitudes de mis trabajos
 
 # master.menu.worker ##########################################################
