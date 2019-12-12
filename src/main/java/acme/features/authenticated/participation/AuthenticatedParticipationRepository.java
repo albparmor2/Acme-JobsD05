@@ -19,6 +19,6 @@ public interface AuthenticatedParticipationRepository extends AbstractRepository
 	@Query("Select t from Thread t where t.id= ?1")
 	Thread findThreadById(int id);
 
-	@Query("Select p from Participation where p.thread.id = ?1 and p.participant.id = ?2")
-	Participation findParticipationByThreadIdAndParticipantId(int threadId, int participantId);
+	@Query("Select p from Participation p where p.id = ?1")
+	Participation findOneParticipationById(int id);
 }

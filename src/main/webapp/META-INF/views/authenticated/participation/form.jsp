@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form> 
-	<acme:form-textbox code="authenticated.participation.list.label.participant.username" path="participant.userAccount.username" readonly="true"/>
-	<acme:form-textbox code="authenticated.participation.list.label.participant.name" path="participant.userAccount.userIdentity.name" readonly="true"/>
-	<acme:form-textbox code="authenticated.participation.list.label.participant.surname" path="participant.userAccount.userIdentity.username" readonly="true"/>
+	<acme:form-textbox code="authenticated.participation.form.label.participant.username" path="participant.userAccount.username" readonly="true"/>
+	<acme:form-textbox code="authenticated.participation.form.label.participant.name" path="participant.userAccount.identity.name" readonly="true"/>
+	<acme:form-textbox code="authenticated.participation.form.label.participant.surname" path="participant.userAccount.identity.surname" readonly="true"/>
 	
 	<acme:form-return code="authenticated.thread.form.button.return"/>
 	

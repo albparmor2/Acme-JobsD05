@@ -15,7 +15,7 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedParticipationListMineService implements AbstractListService<Authenticated, Participation> {
+public class AuthenticatedParticipationListService implements AbstractListService<Authenticated, Participation> {
 
 	@Autowired
 	AuthenticatedParticipationRepository repository;
@@ -43,7 +43,7 @@ public class AuthenticatedParticipationListMineService implements AbstractListSe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model);
+		request.unbind(entity, model, "participant.userAccount.username", "participant.userAccount.identity.name");
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class AuthenticatedParticipationListMineService implements AbstractListSe
 		int threadId;
 		Collection<Participation> result;
 
-		threadId = request.getPrincipal().getActiveRoleId();
+		threadId = request.getModel().getInteger("threadId");
 		result = this.repository.findParticipationsByThreadId(threadId);
 
 		return result;

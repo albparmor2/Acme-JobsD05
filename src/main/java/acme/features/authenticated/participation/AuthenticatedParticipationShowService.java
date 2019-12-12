@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messageThread.Participation;
-import acme.entities.messageThread.Thread;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -24,14 +23,14 @@ public class AuthenticatedParticipationShowService implements AbstractShowServic
 		assert request != null;
 
 		boolean result;
-		Thread t;
-		int threadId;
+		int participationId;
+		Participation p;
 		Principal principal;
 
-		threadId = request.getModel().getInteger("threadId");
-		t = this.repository.findThreadById(threadId);
+		participationId = request.getModel().getInteger("id");
+		p = this.repository.findOneParticipationById(participationId);
 		principal = request.getPrincipal();
-		result = t.getCreator().getId() == principal.getActiveRoleId();
+		result = p.getThread().getCreator().getId() == principal.getActiveRoleId();
 		return result;
 	}
 
@@ -41,7 +40,8 @@ public class AuthenticatedParticipationShowService implements AbstractShowServic
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model);
+		request.unbind(entity, model, "participant.userAccount.username");
+		request.unbind(entity, model, "participant.userAccount.identity.name", "participant.userAccount.identity.surname");
 	}
 
 	@Override
@@ -49,12 +49,10 @@ public class AuthenticatedParticipationShowService implements AbstractShowServic
 		assert request != null;
 
 		Participation result;
-		int participantId;
-		int threadId;
+		int participationId;
 
-		participantId = request.getModel().getInteger("id");
-		threadId = request.getModel().getInteger("threadId");
-		result = this.repository.findParticipationByThreadIdAndParticipantId(threadId, participantId);
+		participationId = request.getModel().getInteger("id");
+		result = this.repository.findOneParticipationById(participationId);
 
 		return result;
 	}

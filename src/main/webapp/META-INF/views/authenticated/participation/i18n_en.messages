@@ -8,6 +8,9 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+authenticated.participation.form.label.participant.username = Username:
+authenticated.participation.form.label.participant.name = Name:
+authenticated.participation.form.label.participant.surname = Surname:
 
 authenticated.thread.form.button.return  = Return
 

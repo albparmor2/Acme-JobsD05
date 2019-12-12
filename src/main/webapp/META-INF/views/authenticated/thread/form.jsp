@@ -19,8 +19,9 @@
     <jstl:if test="${command != 'create'}">
 	<acme:form-textbox code="authenticated.thread.form.label.title" path="title" readonly="true"/>
 	<acme:form-moment code="authenticated.thread.form.label.moment" path="moment" readonly="true"/>
-	<acme:form-textbox code="authenticated.thread.form.label.users" path="users" readonly="true"/>
+	<acme:form-textbox code="authenticated.thread.form.label.creator.username" path="creator.userAccount.username" readonly="true"/>
 	<a href="/acme-jobs/authenticated/participation/list?threadId=${id}"><acme:message code="authenticated.thread.form.label.participations"/></a>
+	<p></p>
 	<a href="/acme-jobs/authenticated/message/list?id=${id}"><acme:message code="authenticated.thread.form.label.messages"/></a>
 	<p></p>
 	</jstl:if>

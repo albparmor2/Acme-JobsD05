@@ -1,13 +1,10 @@
 
 package acme.features.authenticated.threadMessages;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.messageThread.Participation;
 import acme.entities.messageThread.Thread;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -28,15 +25,19 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 
 		boolean result;
 		int authenticatedId;
+		int participantId;
+		int threadId;
 		Principal principal;
-		Collection<Integer> usersId;
 		Thread thread;
+		Participation p;
 
 		principal = request.getPrincipal();
 		authenticatedId = principal.getAccountId();
-		usersId = this.repository.findManyUsersId(request.getModel().getInteger("id"));
-		thread = this.repository.findOneById(request.getModel().getInteger("id"));
-		result = thread.getCreator().getUserAccount().getId() == authenticatedId || usersId.contains(principal.getAccountId());
+		participantId = principal.getActiveRoleId();
+		threadId = request.getModel().getInteger("id");
+		p = this.repository.findParticipationByParticipantIdAndThreadId(participantId, threadId);
+		thread = this.repository.findOneById(threadId);
+		result = thread.getCreator().getUserAccount().getId() == authenticatedId || p != null;
 		return result;
 	}
 
@@ -46,7 +47,7 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "moment", "title", "users");
+		request.unbind(entity, model, "moment", "title", "creator.userAccount.username");
 	}
 
 	@Override
@@ -54,21 +55,10 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 		assert request != null;
 
 		Thread result;
-		List<String> usernames = new ArrayList<>();
 		int id;
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneById(id);
-		String users = "";
-		usernames = this.repository.findManyUsers(id);
-		for (Integer i = 0; i < usernames.size(); i++) {
-			if (usernames.size() - 1 == i) {
-				users = users + usernames.get(i);
-			} else {
-				users = users + usernames.get(i) + ", ";
-			}
-		}
-		result.setUsers(users);
 
 		return result;
 	}

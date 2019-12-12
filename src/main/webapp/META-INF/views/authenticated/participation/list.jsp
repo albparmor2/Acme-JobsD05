@@ -17,8 +17,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-    <input type="hidden" name="threadId" id="threadId" value="${param.threadId}"/>
 	<acme:list-column code="authenticated.participation.list.label.participant.username" path="participant.userAccount.username" width="50%"/>
-	<acme:list-column code="authenticated.participation.list.label.participant.name" path="participant.userAccount.userIdentity.name" width="50%"/>
+	<acme:list-column code="authenticated.participation.list.label.participant.name" path="participant.userAccount.identity.name" width="50%"/>
 	
 </acme:list>
