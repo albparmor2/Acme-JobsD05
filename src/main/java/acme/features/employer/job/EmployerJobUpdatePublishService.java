@@ -6,19 +6,19 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.applications.Application;
 import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
+import acme.entities.jobs.Status;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
-import acme.framework.services.AbstractDeleteService;
+import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class EmployerJobDeleteService implements AbstractDeleteService<Employer, Job> {
+public class EmployerJobUpdatePublishService implements AbstractUpdateService<Employer, Job> {
 
 	@Autowired
 	EmployerJobRepository repository;
@@ -38,8 +38,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-
-		result = employer.getUserAccount().getId() == principal.getAccountId();
+		result = !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -50,7 +49,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment");
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -59,7 +58,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moreInfo", "text");
+		request.unbind(entity, model);
 	}
 
 	@Override
@@ -81,37 +80,39 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		Integer jobId;
-		Collection<Application> applications;
+		int jobId;
+		Descriptor d;
+		Collection<Duty> duties;
 
 		jobId = request.getModel().getInteger("id");
-		applications = this.repository.findManyApplicationByJobId(jobId);
-		if (!applications.isEmpty()) {
-			//Falta poner mensaje en pantalla de que no se puede borrar por eso
-			errors.add("description", "Application error");
+		d = this.repository.findDescriptorByJobId(jobId);
+		if (d != null) {
+			duties = this.repository.findDutysByDescriptorId(d.getId());
+			if (duties.isEmpty()) {
+				errors.add("description", "Las duties no suman 100%");
+			} else {
+				Double percentageTotal = 0.0;
+				for (Duty duty : duties) {
+					percentageTotal += duty.getPercentage();
+				}
+				if (percentageTotal != 100.00) {
+					errors.add("description", "Las duties no suman 100%");
+				}
+			}
+		} else {
+			errors.add("description", "No tiene descriptor");
 		}
+
 	}
 
 	@Override
-	public void delete(final Request<Job> request, final Job entity) {
+	public void update(final Request<Job> request, final Job entity) {
 		assert request != null;
 		assert entity != null;
 
-		Collection<Duty> duties;
-		Descriptor descriptor;
+		entity.setStatus(Status.Published);
 
-		int jobId = entity.getId();
-		descriptor = this.repository.findDescriptorByJobId(jobId);
-		if (descriptor != null) {
-			duties = this.repository.findDutysByDescriptorId(descriptor.getId());
-			if (!duties.isEmpty()) {
-				for (Duty d : duties) {
-					this.repository.delete(d);
-				}
-			}
-			this.repository.delete(descriptor);
-		}
-		this.repository.delete(entity);
+		this.repository.save(entity);
 	}
 
 }

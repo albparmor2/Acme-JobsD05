@@ -16,6 +16,7 @@ employer.job.form.label.salary = Salario:
 employer.job.form.label.moreInfo = Más info:
 employer.job.form.label.description = Descripción:
 employer.job.form.label.duty = Deberes
+employer.job.form.label.duty.create = Crear deber
 employer.job.form.label.auditRecord = Registros de auditoría
 employer.job.form.label.descriptor.create = Crear descripción
 employer.job.form.label.descriptor.update = Editar descripción
@@ -23,6 +24,7 @@ employer.job.form.label.descriptor.update = Editar descripción
 employer.job.form.button.return = Volver
 employer.job.form.button.create = Crear
 employer.job.form.button.update = Editar
+employer.job.form.button.update.publish = Publicar
 employer.job.form.button.delete = Borrar
 
 employer.job.list.label.reference = Referencia

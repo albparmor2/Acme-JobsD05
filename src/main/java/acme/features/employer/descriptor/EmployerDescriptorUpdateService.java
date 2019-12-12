@@ -27,6 +27,7 @@ public class EmployerDescriptorUpdateService implements AbstractUpdateService<Em
 		boolean result;
 		int jobId;
 		Job job;
+		Descriptor d;
 		Employer employer;
 		Principal principal;
 
@@ -34,7 +35,8 @@ public class EmployerDescriptorUpdateService implements AbstractUpdateService<Em
 		job = this.repository.findJobByJobId(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		d = this.repository.findDescriptorByJobId(jobId);
+		result = d != null && !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}

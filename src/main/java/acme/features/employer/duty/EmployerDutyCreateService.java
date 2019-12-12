@@ -1,10 +1,11 @@
 
-package acme.features.employer.descriptor;
+package acme.features.employer.duty;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Descriptor;
+import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -14,14 +15,14 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class EmployerDescriptorCreateService implements AbstractCreateService<Employer, Descriptor> {
+public class EmployerDutyCreateService implements AbstractCreateService<Employer, Duty> {
 
 	@Autowired
-	EmployerDescriptorRepository repository;
+	EmployerDutyRepository repository;
 
 
 	@Override
-	public boolean authorise(final Request<Descriptor> request) {
+	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
 		boolean result;
@@ -36,13 +37,13 @@ public class EmployerDescriptorCreateService implements AbstractCreateService<Em
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
 		d = this.repository.findDescriptorByJobId(jobId);
-		result = d == null && employer.getUserAccount().getId() == principal.getAccountId();
+		result = d != null && employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
 
 	@Override
-	public void bind(final Request<Descriptor> request, final Descriptor entity, final Errors errors) {
+	public void bind(final Request<Duty> request, final Duty entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -51,28 +52,29 @@ public class EmployerDescriptorCreateService implements AbstractCreateService<Em
 	}
 
 	@Override
-	public void unbind(final Request<Descriptor> request, final Descriptor entity, final Model model) {
+	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "description");
+		request.unbind(entity, model, "title", "description", "percentage");
 
 	}
 
 	@Override
-	public Descriptor instantiate(final Request<Descriptor> request) {
-		Descriptor result;
+	public Duty instantiate(final Request<Duty> request) {
+		Duty result;
 
-		result = new Descriptor();
-		Job job;
-		job = this.repository.findJobByJobId(request.getModel().getInteger("jobId"));
-		result.setJob(job);
+		result = new Duty();
+		int jobId;
+		jobId = request.getModel().getInteger("jobId");
+		Descriptor d = this.repository.findDescriptorByJobId(jobId);
+		result.setDescriptor(d);
 		return result;
 	}
 
 	@Override
-	public void validate(final Request<Descriptor> request, final Descriptor entity, final Errors errors) {
+	public void validate(final Request<Duty> request, final Duty entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -80,7 +82,7 @@ public class EmployerDescriptorCreateService implements AbstractCreateService<Em
 	}
 
 	@Override
-	public void create(final Request<Descriptor> request, final Descriptor entity) {
+	public void create(final Request<Duty> request, final Duty entity) {
 
 		this.repository.save(entity);
 	}

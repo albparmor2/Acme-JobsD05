@@ -15,7 +15,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:form>
+<acme:form >
 	<acme:form-textbox code="employer.job.form.label.reference" path="reference" placeholder="EEEE-JJJJ"/>
 	<jstl:if test="${command != 'create'}">
 	<acme:form-textbox code="employer.job.form.label.status" path="status" readonly="true"/>
@@ -27,7 +27,7 @@
 	<jstl:if test="${command != 'create'}">
 	<acme:form-textarea code="employer.job.form.label.description" path="description" readonly="true"/>
 	
-    <a href=/acme-jobs/employer/duty/list?id=${id}><acme:message code="employer.job.form.label.duty"/></a>
+	<a href=/acme-jobs/employer/duty/list?id=${id}><acme:message code="employer.job.form.label.duty"/></a>
 	<p></p>
 	<a href=/acme-jobs/employer/audit-record/list?id=${id}><acme:message code="employer.job.form.label.auditRecord"/></a>
 	<p></p>
@@ -36,13 +36,17 @@
 	</jstl:if>
 	<jstl:if test="${description != null && status == 'Draft'}">
 	<a href=/acme-jobs/employer/descriptor/update?jobId=${id}><acme:message code="employer.job.form.label.descriptor.update"/></a>
+	<p></p>
+	<a href=/acme-jobs/employer/duty/create?jobId=${id}><acme:message code="employer.job.form.label.duty.create"/></a>
 	</jstl:if>
 	<p></p>
 	</jstl:if>
 	
-	<acme:form-submit test="${command == 'show' && status == 'Draft'}" code="employer.job.form.button.update"
+	<acme:form-submit test="${(command == 'show' || command =='update-publish')&& status == 'Draft'}" code="employer.job.form.button.update.publish"
+	action="/employer/job/update-publish"/>
+	<acme:form-submit test="${(command == 'show' || command =='update-publish') && status == 'Draft'}" code="employer.job.form.button.update"
 	action="/employer/job/update"/>
-	<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.delete"
+	<acme:form-submit test="${command == 'show' || command == 'update-publish'}" code="employer.job.form.button.delete"
 	action="/employer/job/delete"/>
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create"
 	action="/employer/job/create"/>
