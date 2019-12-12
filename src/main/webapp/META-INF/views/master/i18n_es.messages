@@ -47,6 +47,7 @@ master.menu.authenticated.offers = Ofertas
 master.menu.authenticated.challenges = Retos
 master.menu.authenticated.jobs = Trabajos activos
 master.menu.authenticated.threads = Hilos
+master.menu.authenticated.thread.create = Crear hilo
 
 # master.menu.administrator ###################################################
 

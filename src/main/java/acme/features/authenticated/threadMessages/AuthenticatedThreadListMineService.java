@@ -2,6 +2,7 @@
 package acme.features.authenticated.threadMessages;
 
 import java.util.Collection;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,11 +41,12 @@ public class AuthenticatedThreadListMineService implements AbstractListService<A
 	public Collection<Thread> findMany(final Request<Thread> request) {
 		assert request != null;
 
-		Collection<Thread> result;
+		Set<Thread> result;
 
 		Principal principal = request.getPrincipal();
 
 		result = this.repository.findManyByAuthenticatedId(principal.getActiveRoleId());
+		result.addAll(this.repository.findManyByCreatorId(principal.getActiveRoleId()));
 
 		return result;
 	}

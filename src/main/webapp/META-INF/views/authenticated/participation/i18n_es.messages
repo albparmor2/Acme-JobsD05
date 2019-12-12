@@ -8,14 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.thread.form.label.title = Titulo:
-authenticated.thread.form.label.moment = Momento:
-authenticated.thread.form.label.users = Usuarios:
-authenticated.thread.form.label.participations = Participantes
-authenticated.thread.form.label.messages = Mensajes
-
-authenticated.thread.form.button.create = Crear
 authenticated.thread.form.button.return  = Volver
 
-authenticated.thread.list.label.moment = Momento
-authenticated.thread.list.label.title = Titulo
+authenticated.participation.list.label.participant.username = Nombre de usuario
+authenticated.participation.list.label.participant.name = Nombre

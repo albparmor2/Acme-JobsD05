@@ -38,8 +38,8 @@
             <acme:menu-suboption code="master.menu.authenticated.offers" action="/authenticated/offer/list"/>
             <acme:menu-suboption code="master.menu.authenticated.challenges" action="/authenticated/challenge/list"/>
             <acme:menu-suboption code="master.menu.authenticated.jobs" action="/authenticated/job/list"/>
-             <acme:menu-suboption code="master.menu.authenticated.threads" action="/authenticated/thread/list-mine"/>
-            
+            <acme:menu-suboption code="master.menu.authenticated.threads" action="/authenticated/thread/list-mine"/>
+            <acme:menu-suboption code="master.menu.authenticated.thread.create" action="/authenticated/thread/create"/>
             
         </acme:menu-option>
         

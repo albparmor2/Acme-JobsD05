@@ -9,14 +9,7 @@
 # they accept any liabilities with respect to them.
 
 
-authenticated.thread.form.label.title = Title:
-authenticated.thread.form.label.moment = Moment:
-authenticated.thread.form.label.users = Users:
-authenticated.thread.form.label.participations = Participants
-authenticated.thread.form.label.messages = Messages
-
-authenticated.thread.form.button.create = Create
 authenticated.thread.form.button.return  = Return
 
-authenticated.thread.list.label.moment = Moment
-authenticated.thread.list.label.title = Title
+authenticated.participation.list.label.participant.username = Username
+authenticated.participation.list.label.participant.name = Name

@@ -15,15 +15,22 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:form readonly="true">
-	<acme:form-textbox code="authenticated.thread.form.label.title" path="title"/>
-	<acme:form-moment code="authenticated.thread.form.label.moment" path="moment"/>
-	<acme:form-textbox code="authenticated.thread.form.label.users" path="users"/>
-	
-	
-	
+<acme:form>
+    <jstl:if test="${command != 'create'}">
+	<acme:form-textbox code="authenticated.thread.form.label.title" path="title" readonly="true"/>
+	<acme:form-moment code="authenticated.thread.form.label.moment" path="moment" readonly="true"/>
+	<acme:form-textbox code="authenticated.thread.form.label.users" path="users" readonly="true"/>
+	<a href="/acme-jobs/authenticated/participation/list?threadId=${id}"><acme:message code="authenticated.thread.form.label.participations"/></a>
 	<a href="/acme-jobs/authenticated/message/list?id=${id}"><acme:message code="authenticated.thread.form.label.messages"/></a>
 	<p></p>
+	</jstl:if>
+	<jstl:if test="${command == 'create'}">
+	<acme:form-textbox code="authenticated.thread.form.label.title" path="title"/>
+	<acme:form-submit code="authenticated.thread.form.button.create"
+	action="/authenticated/thread/create"/>
+	</jstl:if>
+	
+	
 	<acme:form-return code="authenticated.thread.form.button.return"/>
 	
 	
