@@ -83,11 +83,14 @@ public class AuthenticatedParticipationCreateService implements AbstractCreateSe
 
 		if (!errors.hasErrors("username")) {
 			a = this.repository.findOneAuthenticatedByUsername(entity.getUsername());
-			errors.state(request, a != null, "participant.userAccount.username", "Error de que no existe usuario");
+			errors.state(request, a != null, "username", "Error de que no existe usuario");
 			if (a != null) {
 				threadId = request.getModel().getInteger("threadId");
 				p = this.repository.findOneParticipationByParticipantIdAndThreadId(a.getId(), threadId);
-				errors.state(request, p == null, "participant.userAccount.username", "Error de que ya es participante");
+				errors.state(request, p == null, "username", "Error de que ya es participante");
+				if (p == null) {
+					entity.setParticipant(a);
+				}
 			}
 		}
 
@@ -95,12 +98,13 @@ public class AuthenticatedParticipationCreateService implements AbstractCreateSe
 
 	@Override
 	public void create(final Request<Participation> request, final Participation entity) {
-		Authenticated a;
 		String username;
+		Authenticated participant;
 
 		username = entity.getUsername();
-		a = this.repository.findOneAuthenticatedByUsername(username);
-		entity.setParticipant(a);
+		participant = this.repository.findOneAuthenticatedByUsername(username);
+		entity.setParticipant(participant);
+
 		this.repository.save(entity);
 	}
 

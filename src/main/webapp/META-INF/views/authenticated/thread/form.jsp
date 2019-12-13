@@ -22,9 +22,12 @@
 	<acme:form-textbox code="authenticated.thread.form.label.creator.username" path="creator.userAccount.username" readonly="true"/>
 	<a href="/acme-jobs/authenticated/participation/list?threadId=${id}"><acme:message code="authenticated.thread.form.label.participations"/></a>
 	<p></p>
-	<a href="/acme-jobs/authenticated/message/list?id=${id}"><acme:message code="authenticated.thread.form.label.messages"/></a>
+	<a href="/acme-jobs/authenticated/message/list?threadId=${id}"><acme:message code="authenticated.thread.form.label.messages"/></a>
 	<p></p>
-	<acme:form-submit code="authenticated.thread.form.button.create.participation" action="/authenticated/participation/create?threadId=${id}"/>
+	<a href="/acme-jobs/authenticated/participation/create?threadId=${id}"><acme:message code="authenticated.thread.form.label.create.participation"/></a>
+	<p></p>
+	<a href="/acme-jobs/authenticated/message/create?threadId=${id}"><acme:message code="authenticated.thread.form.label.create.message"/></a>
+	<p></p>
 	</jstl:if>
 	<jstl:if test="${command == 'create'}">
 	<acme:form-textbox code="authenticated.thread.form.label.title" path="title"/>
