@@ -218,6 +218,7 @@
     create table `participation` (
        `id` integer not null,
         `version` integer not null,
+        `username` varchar(255),
         `participant_id` integer not null,
         `thread_id` integer not null,
         primary key (`id`)

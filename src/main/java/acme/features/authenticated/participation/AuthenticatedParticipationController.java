@@ -22,11 +22,19 @@ public class AuthenticatedParticipationController extends AbstractController<Aut
 	@Autowired
 	private AuthenticatedParticipationShowService	showService;
 
+	@Autowired
+	private AuthenticatedParticipationCreateService	createService;
+
+	@Autowired
+	private AuthenticatedParticipationDeleteService	deleteService;
+
 
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listMineService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
 }

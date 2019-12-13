@@ -24,13 +24,13 @@
 	<p></p>
 	<a href="/acme-jobs/authenticated/message/list?id=${id}"><acme:message code="authenticated.thread.form.label.messages"/></a>
 	<p></p>
+	<acme:form-submit code="authenticated.thread.form.button.create.participation" action="/authenticated/participation/create?threadId=${id}"/>
 	</jstl:if>
 	<jstl:if test="${command == 'create'}">
 	<acme:form-textbox code="authenticated.thread.form.label.title" path="title"/>
 	<acme:form-submit code="authenticated.thread.form.button.create"
 	action="/authenticated/thread/create"/>
 	</jstl:if>
-	
 	
 	<acme:form-return code="authenticated.thread.form.button.return"/>
 	

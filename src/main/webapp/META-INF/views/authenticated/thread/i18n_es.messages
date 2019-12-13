@@ -14,6 +14,7 @@ authenticated.thread.form.label.creator.username = Creador
 authenticated.thread.form.label.participations = Participantes
 authenticated.thread.form.label.messages = Mensajes
 
+authenticated.thread.form.button.create.participation = Añadir Participante
 authenticated.thread.form.button.create = Crear
 authenticated.thread.form.button.return  = Volver
 

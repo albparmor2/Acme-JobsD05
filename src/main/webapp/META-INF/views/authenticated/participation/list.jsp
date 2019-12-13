@@ -19,5 +19,4 @@
 <acme:list>
 	<acme:list-column code="authenticated.participation.list.label.participant.username" path="participant.userAccount.username" width="50%"/>
 	<acme:list-column code="authenticated.participation.list.label.participant.name" path="participant.userAccount.identity.name" width="50%"/>
-	
 </acme:list>

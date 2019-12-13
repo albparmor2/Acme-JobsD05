@@ -675,21 +675,25 @@
 
    <!-- Participation -->
    <bean id="participation01" class="acme.entities.messageThread.Participation">
+   <property name="username" value="worker1"/>
    <property name="thread" ref="thread02"/>
    <property name="participant" ref="worker1Authenticated"/>
    </bean>
 
    <bean id="participation02" class="acme.entities.messageThread.Participation">
+   <property name="username" value="worker2"/>
    <property name="thread" ref="thread02"/>
    <property name="participant" ref="worker2Authenticated"/>
    </bean>
    
    <bean id="participation03" class="acme.entities.messageThread.Participation">
+   <property name="username" value="auditor1"/>
    <property name="thread" ref="thread03"/>
    <property name="participant" ref="auditor1Authenticated"/>
    </bean>
    
    <bean id="participation04" class="acme.entities.messageThread.Participation">
+   <property name="username" value="auditor2"/>
    <property name="thread" ref="thread03"/>
    <property name="participant" ref="auditor2Authenticated"/>
    </bean>

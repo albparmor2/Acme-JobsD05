@@ -11,7 +11,9 @@
 authenticated.participation.form.label.participant.username = Username:
 authenticated.participation.form.label.participant.name = Name:
 authenticated.participation.form.label.participant.surname = Surname:
+authenticated.participation.form.label.username = Username:
 
+authenticated.participation.form.button.delete = Delete participant
 authenticated.thread.form.button.return  = Return
 
 authenticated.participation.list.label.participant.username = Username
