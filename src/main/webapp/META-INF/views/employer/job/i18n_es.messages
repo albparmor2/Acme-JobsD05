@@ -32,3 +32,6 @@ employer.job.list.label.deadline = Fecha límite
 employer.job.list.label.title = Título
 
 employer.job.form.error.existJob = Ya hay un trabajo con esa referencia
+employer.job.form.error.descriptor = Para publicar el trabajo, debe tener una descripción
+employer.job.form.error.duty = La suma del porcentaje de todos los deberes del trabajo debe ser 100%
+employer.job.form.error.deleteJob = El trabajo no puede ser borrado porque algún trabajador lo ha solicitado

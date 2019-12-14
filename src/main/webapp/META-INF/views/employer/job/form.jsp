@@ -27,22 +27,30 @@
 	<jstl:if test="${command != 'create'}">
 	<acme:form-textarea code="employer.job.form.label.description" path="description" readonly="true"/>
 	
-	<a href=/acme-jobs/employer/duty/list?id=${id}><acme:message code="employer.job.form.label.duty"/></a>
-	<p></p>
+	<jstl:if test="${status == 'Published'}">
 	<a href=/acme-jobs/employer/audit-record/list?id=${id}><acme:message code="employer.job.form.label.auditRecord"/></a>
-	<p></p>
-	<jstl:if test="${description == null}">
-	<a href=/acme-jobs/employer/descriptor/create?jobId=${id}><acme:message code="employer.job.form.label.descriptor.create"/></a>
-	</jstl:if>
-	<jstl:if test="${description != null && status == 'Draft'}">
-	<a href=/acme-jobs/employer/descriptor/update?jobId=${id}><acme:message code="employer.job.form.label.descriptor.update"/></a>
-	<p></p>
-	<a href=/acme-jobs/employer/duty/create?jobId=${id}><acme:message code="employer.job.form.label.duty.create"/></a>
-	</jstl:if>
 	<p></p>
 	</jstl:if>
 	
-	<acme:form-submit test="${(command == 'show' || command =='update-publish')&& status == 'Draft'}" code="employer.job.form.button.update.publish"
+	<jstl:if test="${description != null && description != ''}">
+	<a href=/acme-jobs/employer/duty/list?id=${id}><acme:message code="employer.job.form.label.duty"/></a>
+	<p></p>
+	</jstl:if>
+	
+	<jstl:if test="${description == null || description == ''}">
+	<a href=/acme-jobs/employer/descriptor/create?jobId=${id}><acme:message code="employer.job.form.label.descriptor.create"/></a>
+	</jstl:if>
+	
+	<jstl:if test="${description != null && description != '' && status == 'Draft'}">
+	<a href=/acme-jobs/employer/duty/create?jobId=${id}><acme:message code="employer.job.form.label.duty.create"/></a>
+	<p></p>
+	<a href=/acme-jobs/employer/descriptor/update?jobId=${id}><acme:message code="employer.job.form.label.descriptor.update"/></a>
+	</jstl:if>
+	<p></p>
+	
+	</jstl:if>
+	
+	<acme:form-submit test="${(command == 'show' || command =='update-publish') && status == 'Draft'}" code="employer.job.form.button.update.publish"
 	action="/employer/job/update-publish"/>
 	<acme:form-submit test="${(command == 'show' || command =='update-publish') && status == 'Draft'}" code="employer.job.form.button.update"
 	action="/employer/job/update"/>

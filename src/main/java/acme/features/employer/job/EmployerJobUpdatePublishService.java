@@ -89,18 +89,18 @@ public class EmployerJobUpdatePublishService implements AbstractUpdateService<Em
 		if (d != null) {
 			duties = this.repository.findDutysByDescriptorId(d.getId());
 			if (duties.isEmpty()) {
-				errors.add("description", "Las duties no suman 100%");
+				errors.add("*", "employer.job.form.error.duty");
 			} else {
 				Double percentageTotal = 0.0;
 				for (Duty duty : duties) {
 					percentageTotal += duty.getPercentage();
 				}
 				if (percentageTotal != 100.00) {
-					errors.add("description", "Las duties no suman 100%");
+					errors.add("*", "employer.job.form.error.duty");
 				}
 			}
 		} else {
-			errors.add("description", "No tiene descriptor");
+			errors.add("*", "employer.job.form.error.descriptor");
 		}
 
 	}

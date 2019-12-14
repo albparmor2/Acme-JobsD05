@@ -34,8 +34,6 @@ public class Thread extends DomainEntity {
 	@Past
 	private Date				moment;
 
-	private String				users;
-
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)

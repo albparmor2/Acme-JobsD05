@@ -87,8 +87,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		jobId = request.getModel().getInteger("id");
 		applications = this.repository.findManyApplicationByJobId(jobId);
 		if (!applications.isEmpty()) {
-			//Falta poner mensaje en pantalla de que no se puede borrar por eso
-			errors.add("description", "Application error");
+			errors.add("*", "employer.job.form.error.deleteJob");
 		}
 	}
 

@@ -1,9 +1,7 @@
 
 package acme.features.authenticated.threadMessages;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,7 +44,7 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "moment", "title", "users");
+		request.unbind(entity, model, "moment", "title");
 	}
 
 	@Override
@@ -54,21 +52,10 @@ public class AuthenticatedThreadShowService implements AbstractShowService<Authe
 		assert request != null;
 
 		Thread result;
-		List<String> usernames = new ArrayList<>();
 		int id;
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneById(id);
-		String users = "";
-		usernames = this.repository.findManyUsers(id);
-		for (Integer i = 0; i < usernames.size(); i++) {
-			if (usernames.size() - 1 == i) {
-				users = users + usernames.get(i);
-			} else {
-				users = users + usernames.get(i) + ", ";
-			}
-		}
-		result.setUsers(users);
 
 		return result;
 	}

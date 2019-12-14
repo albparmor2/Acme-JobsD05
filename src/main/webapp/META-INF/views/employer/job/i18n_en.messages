@@ -32,3 +32,6 @@ employer.job.list.label.deadline = Deadline
 employer.job.list.label.title = Title
 
 employer.job.form.error.existJob = There's already a job with that reference
+employer.job.form.error.descriptor = To publish the job, it must have a description
+employer.job.form.error.duty = The sum of the percentage of all job duties should be 100%
+employer.job.form.error.deleteJob = The job cannot be deleted because some worker has applied for the job
