@@ -15,14 +15,18 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class CommercialBanner extends Banner {
+public class CreditCard extends DomainEntity {
 
+	/**
+	 *
+	 */
 	private static final long	serialVersionUID	= 1L;
 
 	@NotBlank
@@ -55,5 +59,4 @@ public class CommercialBanner extends Banner {
 		Date res = calendar.getTime();
 		return res;
 	}
-
 }

@@ -73,6 +73,10 @@
 
     alter table `sponsor` 
        drop 
+       foreign key `FK28mvxtnmfjcwiw34vs8ryqkpa`;
+
+    alter table `sponsor` 
+       drop 
        foreign key FK_20xk0ev32hlg96kqynl6laie2;
 
     alter table `thread` 
@@ -104,6 +108,8 @@
     drop table if exists `company_record`;
 
     drop table if exists `consumer`;
+
+    drop table if exists `credit_card`;
 
     drop table if exists `customisation`;
 

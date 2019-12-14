@@ -22,7 +22,8 @@
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.creditCardNumber" path="creditCardNumber"/>
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.holder" path="holder"/>
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.brand" path="brand"/>
-	<acme:form-textbox code="sponsor.commercial-banner.form.label.expirationDate" path="expirationDate"/>
+	<acme:form-textbox code="sponsor.commercial-banner.form.label.month" path="month"/>
+	<acme:form-textbox code="sponsor.commercial-banner.form.label.year" path="year"/>
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.cvv" path="cvv"/>
 	
 	
