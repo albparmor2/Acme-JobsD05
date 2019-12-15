@@ -47,7 +47,5 @@ acme.money.error.positive = El dinero debe ser positivo
 acme.error.confirm = Debes confirmar la acción
 acme.date.error.futureDate = Fecha incorrecta. La fecha no puede ser anterior a la fecha actual.
 acme.cvv.error.pattern = El CVV debe ser de 3 o 4 dígitos
-acme.telephoneNumber.error.pattern = El número de teléfono debe adherirse al siguiente patrón “+999 (9999) 999999”,donde “+999” denota un prefijo internacional opcional desde “+1” hasta “+999”,
-                                     “(9999)” denota un código de área opcional en rango desde “(0)” hasta “(9999)”,
-                                     y “999999” denota un número de teléfono local con un mínimo de 6 dígitos y un máximo
-                                     de 10 dígitos
+acme.telephoneNumber.error.pattern = El número de teléfono debe adherirse al siguiente patrón “+999 (9999) 999999”,donde “+999” denota un prefijo internacional opcional desde “+1” hasta “+999”,“(9999)” denota un código de área opcional en rango desde “(0)” hasta “(9999)”, y “999999” denota un número de teléfono local con un mínimo de 6 dígitos y un máximo de 10 dígitos
+acme.spam.error.isSpam = Este fragmento de texto esta considerado spam. Por favor, reescríbalo
