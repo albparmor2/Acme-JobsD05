@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.customisations.Customisation;
 import acme.entities.messageThread.Message;
 import acme.entities.messageThread.Participation;
 import acme.entities.messageThread.Thread;
@@ -35,4 +36,7 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 
 	@Query("select a from Authenticated a where a.userAccount.id = ?1")
 	Authenticated findAuthenticatedById(int authenticatedId);
+
+	@Query("select c from Customisation c")
+	Customisation findCustomisation();
 }

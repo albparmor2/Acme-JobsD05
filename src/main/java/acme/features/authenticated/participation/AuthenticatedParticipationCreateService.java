@@ -65,7 +65,11 @@ public class AuthenticatedParticipationCreateService implements AbstractCreateSe
 		threadId = request.getModel().getInteger("threadId");
 		t = this.repository.findThreadById(threadId);
 		result.setThread(t);
-		a = new Authenticated();
+		//Problema por el que hago esto. Hasta que no pongo el nombre del autentificado, no tengo
+		//el autentificado a añadir. Por lo que no puedo inicializarlo aquí ya que no tengo
+		//todavía el autentificado elegido. Así que lo inicializo con otro el cual no va a ser
+		//participante
+		a = this.repository.findOneAuthenticatedByUsername(request.getPrincipal().getUsername());
 		result.setParticipant(a);
 
 		return result;
@@ -79,15 +83,18 @@ public class AuthenticatedParticipationCreateService implements AbstractCreateSe
 
 		Authenticated a;
 		Participation p;
+		Thread t;
 		int threadId;
 
 		if (!errors.hasErrors("username")) {
 			a = this.repository.findOneAuthenticatedByUsername(entity.getUsername());
-			errors.state(request, a != null, "username", "Error de que no existe usuario");
+			errors.state(request, a != null, "username", "authenticated.participation.error.dontExistAuthenticated");
 			if (a != null) {
 				threadId = request.getModel().getInteger("threadId");
+				t = this.repository.findThreadById(threadId);
+				errors.state(request, !a.equals(t.getCreator()), "username", "authenticated.participation.error.creator");
 				p = this.repository.findOneParticipationByParticipantIdAndThreadId(a.getId(), threadId);
-				errors.state(request, p == null, "username", "Error de que ya es participante");
+				errors.state(request, p == null, "username", "authenticated.participation.error.isAlreadyParticipant");
 				if (p == null) {
 					entity.setParticipant(a);
 				}

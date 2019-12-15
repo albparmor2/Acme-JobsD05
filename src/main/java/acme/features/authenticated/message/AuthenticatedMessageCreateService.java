@@ -6,9 +6,11 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customisations.Customisation;
 import acme.entities.messageThread.Message;
 import acme.entities.messageThread.Participation;
 import acme.entities.messageThread.Thread;
+import acme.features.antiSpamFilter.AntiSpamFilter;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -92,6 +94,40 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 
 		Boolean confirm = request.getModel().getBoolean("confirmMessage");
 		errors.state(request, confirm, "confirmMessage", "acme.error.confirm");
+
+		Customisation c;
+		String spamWord;
+		Double threshold;
+		boolean isSpam;
+
+		//Para poder usar los métodos de la clase
+		AntiSpamFilter asf = new AntiSpamFilter();
+		//Vamos a comprobar si el mensaje tiene spam
+		c = this.repository.findCustomisation();
+		spamWord = c.getSpamWord();
+		threshold = c.getThreshold();
+		String[] separateSpamWord = asf.separateSpamWord(spamWord);
+
+		String title;
+		if (!errors.hasErrors("title")) {
+			title = entity.getTitle();
+			isSpam = asf.isSpam(separateSpamWord, title, threshold);
+			errors.state(request, isSpam == false, "title", "acme.spam.error.isSpam");
+		}
+
+		String tags;
+		if (!errors.hasErrors("tags")) {
+			tags = entity.getTags();
+			isSpam = asf.isSpam(separateSpamWord, tags, threshold);
+			errors.state(request, isSpam == false, "tags", "acme.spam.error.isSpam");
+		}
+
+		String body;
+		if (!errors.hasErrors("body")) {
+			body = entity.getBody();
+			isSpam = asf.isSpam(separateSpamWord, body, threshold);
+			errors.state(request, isSpam == false, "body", "acme.spam.error.isSpam");
+		}
 
 	}
 

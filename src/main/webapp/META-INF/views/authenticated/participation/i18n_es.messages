@@ -19,3 +19,7 @@ authenticated.thread.form.button.return  = Volver
 
 authenticated.participation.list.label.participant.username = Nombre de usuario
 authenticated.participation.list.label.participant.name = Nombre
+
+authenticated.participation.error.creator = Estás intentando añadir al creador del hilo. Este ya es participante
+authenticated.participation.error.dontExistAuthenticated = No existe un usuario con ese nombre de usuario
+authenticated.participation.error.isAlreadyParticipant = El usuario ya es participante

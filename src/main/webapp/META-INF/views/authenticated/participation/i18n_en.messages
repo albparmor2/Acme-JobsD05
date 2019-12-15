@@ -19,3 +19,7 @@ authenticated.thread.form.button.return  = Return
 
 authenticated.participation.list.label.participant.username = Username
 authenticated.participation.list.label.participant.name = Name
+
+authenticated.participation.error.creator = You are trying to add the thread creator. It is already a participant
+authenticated.participation.error.dontExistAuthenticated = There is no a user with that username
+authenticated.participation.error.isAlreadyParticipant = The user is already participant
