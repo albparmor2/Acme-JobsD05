@@ -6,11 +6,13 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customisations.Customisation;
 import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.jobs.Status;
 import acme.entities.roles.Employer;
+import acme.features.antiSpamFilter.AntiSpamFilter;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -81,26 +83,58 @@ public class EmployerJobUpdatePublishService implements AbstractUpdateService<Em
 		assert errors != null;
 
 		int jobId;
+		String description;
 		Descriptor d;
 		Collection<Duty> duties;
 
-		jobId = request.getModel().getInteger("id");
-		d = this.repository.findDescriptorByJobId(jobId);
-		if (d != null) {
-			duties = this.repository.findDutysByDescriptorId(d.getId());
-			if (duties.isEmpty()) {
-				errors.add("*", "employer.job.form.error.duty");
-			} else {
-				Double percentageTotal = 0.0;
-				for (Duty duty : duties) {
-					percentageTotal += duty.getPercentage();
-				}
-				if (percentageTotal != 100.00) {
+		if (!errors.hasErrors("description")) {
+			description = entity.getDescription();
+			if (description != null && description != "") {
+				jobId = request.getModel().getInteger("id");
+				d = this.repository.findDescriptorByJobId(jobId);
+				duties = this.repository.findDutysByDescriptorId(d.getId());
+				if (duties.isEmpty()) {
 					errors.add("*", "employer.job.form.error.duty");
+				} else {
+					Double percentageTotal = 0.0;
+					for (Duty duty : duties) {
+						percentageTotal += duty.getPercentage();
+					}
+					if (percentageTotal != 100.00) {
+						errors.add("*", "employer.job.form.error.duty");
+					}
 				}
+			} else {
+				errors.add("*", "employer.job.form.error.descriptor");
 			}
-		} else {
-			errors.add("*", "employer.job.form.error.descriptor");
+		}
+
+		Customisation c;
+		String spamWords;
+		Double threshold;
+		boolean isSpam;
+
+		//Para poder usar los métodos de la clase
+		AntiSpamFilter asf = new AntiSpamFilter();
+		//Vamos a comprobar si el trabajo tiene spam
+		c = this.repository.findCustomisation();
+		spamWords = c.getSpamWord();
+		threshold = c.getThreshold();
+		String[] separateSpamWord = asf.separateSpamWord(spamWords);
+
+		if (!errors.hasErrors("description")) {
+			description = entity.getDescription();
+			if (description != null && description != "") {
+				isSpam = asf.isSpam(separateSpamWord, description, threshold);
+				errors.state(request, isSpam == false, "description", "acme.spam.error.isSpam");
+			}
+		}
+
+		String title;
+		if (!errors.hasErrors("title")) {
+			title = entity.getTitle();
+			isSpam = asf.isSpam(separateSpamWord, title, threshold);
+			errors.state(request, isSpam == false, "title", "acme.spam.error.isSpam");
 		}
 
 	}
