@@ -89,23 +89,20 @@ public class EmployerJobUpdatePublishService implements AbstractUpdateService<Em
 
 		if (!errors.hasErrors("description")) {
 			description = entity.getDescription();
+			jobId = request.getModel().getInteger("id");
+			d = this.repository.findDescriptorByJobId(jobId);
 			if (description != null && description != "") {
-				jobId = request.getModel().getInteger("id");
-				d = this.repository.findDescriptorByJobId(jobId);
 				duties = this.repository.findDutysByDescriptorId(d.getId());
-				if (duties.isEmpty()) {
-					errors.add("*", "employer.job.form.error.duty");
-				} else {
+				errors.state(request, !duties.isEmpty(), "*", "employer.job.form.error.duty");
+				if (!duties.isEmpty()) {
 					Double percentageTotal = 0.0;
 					for (Duty duty : duties) {
 						percentageTotal += duty.getPercentage();
 					}
-					if (percentageTotal != 100.00) {
-						errors.add("*", "employer.job.form.error.duty");
-					}
+					errors.state(request, percentageTotal == 100.00, "*", "employer.job.form.error.duty");
 				}
 			} else {
-				errors.add("*", "employer.job.form.error.descriptor");
+				errors.state(request, d != null, "*", "employer.job.form.error.descriptor");
 			}
 		}
 

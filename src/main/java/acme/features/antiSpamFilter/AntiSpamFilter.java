@@ -8,16 +8,17 @@ public class AntiSpamFilter {
 		return separateSpamWord;
 	}
 
-	public boolean isSpam(final String[] separateSpamWord, final String textToAnalyze, final double threshold) {
+	public boolean isSpam(final String[] separateSpamWord, String textToAnalyze, final double threshold) {
 		boolean res = false;
-		String textToAnalyze2 = textToAnalyze.replace(",", "").replace(";", "").replace(".", "");
-		String[] separateTextToAnalyze = textToAnalyze2.toLowerCase().split(" ");
+		String[] separateTextToAnalyze = textToAnalyze.split(" ");
+		textToAnalyze = textToAnalyze.toLowerCase();
 		Integer totalSpamWordInTheText = 0;
-		for (String text : separateTextToAnalyze) {
-			for (String spamWord : separateSpamWord) {
-				if (text.equals(spamWord)) {
-					totalSpamWordInTheText += 1;
-				}
+		for (String spamWord : separateSpamWord) {
+			Integer lengthCompleteText = textToAnalyze.length();
+			if (textToAnalyze.contains(spamWord)) {
+				textToAnalyze = textToAnalyze.replace(spamWord, "");
+				Integer lengthReplaceText = textToAnalyze.length();
+				totalSpamWordInTheText = (lengthCompleteText - lengthReplaceText) / spamWord.length();
 			}
 		}
 
