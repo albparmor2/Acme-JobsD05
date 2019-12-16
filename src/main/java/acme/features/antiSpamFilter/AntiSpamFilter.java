@@ -18,7 +18,7 @@ public class AntiSpamFilter {
 			if (textToAnalyze.contains(spamWord)) {
 				textToAnalyze = textToAnalyze.replace(spamWord, "");
 				Integer lengthReplaceText = textToAnalyze.length();
-				totalSpamWordInTheText = (lengthCompleteText - lengthReplaceText) / spamWord.length();
+				totalSpamWordInTheText = totalSpamWordInTheText + (lengthCompleteText - lengthReplaceText) / spamWord.length();
 			}
 		}
 
