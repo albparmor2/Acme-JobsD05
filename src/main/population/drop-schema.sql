@@ -39,6 +39,10 @@
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
 
+    alter table `credit_card` 
+       drop 
+       foreign key `FK31l5hvh7p1nx1aw6v649gw3rc`;
+
     alter table `descriptor` 
        drop 
        foreign key `FKgfulfilmwi4hhaquiu7fr5g0g`;
@@ -70,10 +74,6 @@
     alter table `provider` 
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
-
-    alter table `sponsor` 
-       drop 
-       foreign key `FK28mvxtnmfjcwiw34vs8ryqkpa`;
 
     alter table `sponsor` 
        drop 

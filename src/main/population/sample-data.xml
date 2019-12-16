@@ -497,6 +497,7 @@
  	<property name="month" value="1"/>
  	<property name="year" value="2020"/>
  	<property name="cvv" value="9537"/>
+ 	 <property name="sponsor" ref="sponsor1sponsor"/>
  </bean>
 
  <!-- Non commercial banners -->
@@ -531,7 +532,6 @@
 
 <bean name="sponsor1sponsor" class="acme.entities.roles.Sponsor">
    <property name="company" value="sponsor 1, Inc."/>
-   <property name="creditCard" ref="creditCard1"/>
    <property name="UserAccount" ref="sponsor1UserAccount"/>
 </bean>
 
