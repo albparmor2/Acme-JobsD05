@@ -47,6 +47,7 @@ master.menu.authenticated.offers = Offers
 master.menu.authenticated.challenges = Challenges
 master.menu.authenticated.jobs = Active jobs
 master.menu.authenticated.threads = Threads
+master.menu.authenticated.thread.create = Create thread
 
 # master.menu.administrator ###################################################
 

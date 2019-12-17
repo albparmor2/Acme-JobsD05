@@ -215,6 +215,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `participation` (
+       `id` integer not null,
+        `version` integer not null,
+        `username` varchar(255),
+        `participant_id` integer not null,
+        `thread_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `provider` (
        `id` integer not null,
         `version` integer not null,
@@ -406,6 +415,16 @@ create index IDX1e6yyalrv1ka0w3g229hjwy6o on `requesta` (`ticker`);
        add constraint FK_2l8gpcwh19e7jj513or4r9dvb 
        foreign key (`sponsor_id`) 
        references `sponsor` (`id`);
+
+    alter table `participation` 
+       add constraint `FKl3oifwo53p0xo35t6hlositwc` 
+       foreign key (`participant_id`) 
+       references `authenticated` (`id`);
+
+    alter table `participation` 
+       add constraint `FKk6j425rhm4ahsi6cf2bg2um4l` 
+       foreign key (`thread_id`) 
+       references `thread` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 

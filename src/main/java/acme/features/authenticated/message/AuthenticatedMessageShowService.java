@@ -1,12 +1,12 @@
 
 package acme.features.authenticated.message;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messageThread.Message;
+import acme.entities.messageThread.Participation;
+import acme.entities.messageThread.Thread;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -26,17 +26,19 @@ public class AuthenticatedMessageShowService implements AbstractShowService<Auth
 
 		boolean result;
 		int authenticatedId;
-		int threadId;
-		int authenticatedThreadId;
+		int creatorId;
+		int messageId;
 		Principal principal;
-		Collection<Integer> usersId;
+		Participation p;
+		Thread t;
 
 		principal = request.getPrincipal();
 		authenticatedId = principal.getAccountId();
-		threadId = this.repository.findThreadId(request.getModel().getInteger("id"));
-		usersId = this.repository.findManyUsersId(threadId);
-		authenticatedThreadId = this.repository.findUserIdByid(threadId);
-		result = authenticatedThreadId == authenticatedId || usersId.contains(principal.getAccountId());
+		messageId = request.getModel().getInteger("id");
+		t = this.repository.findThreadByMessageId(messageId);
+		creatorId = this.repository.findUserIdByThreadId(t.getId());
+		p = this.repository.findParticipationByParticipantIdAndThreadId(authenticatedId, t.getId());
+		result = creatorId == authenticatedId || p != null;
 		return result;
 	}
 
