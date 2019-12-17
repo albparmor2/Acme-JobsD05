@@ -16,15 +16,30 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
+	<jstl:if test="${command != 'update-rejected'}">
 	<acme:form-textbox code="employer.application.form.label.reference" path="reference"/>
 	<acme:form-moment code="employer.application.form.label.moment" path="moment"/>
 	<acme:form-textbox code="employer.application.form.label.status" path="status"/>
+	</jstl:if>
+	<jstl:if test="${status == 'Rejected' || command == 'update-rejected'}">
+	<acme:form-textbox code="employer.application.form.label.justification" path="justification"/>
+	</jstl:if>
+	<jstl:if test="${command != 'update-rejected'}">
 	<acme:form-textarea code="employer.application.form.label.statement" path="statement"/>
 	<acme:form-textarea code="employer.application.form.label.skills" path="skills"/>
 	<acme:form-textarea code="employer.application.form.label.qualifications" path="qualifications"/>
 	<acme:form-textbox code="employer.application.form.label.job.reference" path="job.reference"/>
 	<acme:form-textbox code="employer.application.form.label.job.title" path="job.title"/>
-	
+	</jstl:if>
+	<jstl:if test="${status == 'Pending'}">
+	<acme:form-submit code="employer.job.form.button.update.accepted" action="/employer/application/update-accepted"/>
+	<p></p>
+	<a href=/acme-jobs/employer/application/update-rejected?id=${id}><acme:message code="employer.application.form.label.reject"/></a>
+	<p></p>
+	</jstl:if>
+	<jstl:if test="${command == 'update-rejected'}">
+	<acme:form-submit code="employer.job.form.button.confirm" action="/employer/application/update-rejected"/>
+	</jstl:if>
 	<acme:form-return code="employer.application.form.button.return"/>
 	
 </acme:form>

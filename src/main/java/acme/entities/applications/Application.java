@@ -42,7 +42,7 @@ public class Application extends DomainEntity {
 
 	@NotNull
 	private Status				status;
-	
+
 	@Column(length = 1024)
 	@NotBlank
 	private String				statement;
@@ -64,5 +64,8 @@ public class Application extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Worker				worker;
+
+	@Column(length = 1024)
+	private String				justification;
 
 }

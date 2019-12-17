@@ -11,14 +11,21 @@
 employer.application.form.label.reference = Reference:
 employer.application.form.label.moment = Moment:
 employer.application.form.label.status = Status:
+employer.application.form.label.justification = Justification:
 employer.application.form.label.statement = Statement:
 employer.application.form.label.skills = Skills:
 employer.application.form.label.qualifications = Qualifications:
 employer.application.form.label.job.reference = Job reference:
 employer.application.form.label.job.title = Job title:
 
+employer.job.form.button.update.accepted = Accept
+employer.application.form.label.reject = Reject
+employer.job.form.button.confirm = Confirm
 employer.application.form.button.return = Return
 
 employer.application.list.label.reference = Reference
 employer.application.list.label.status = Status
 employer.application.list.label.job.reference = Job reference
+employer.application.list.label.moment = Moment
+
+employer.application.form.error.blankJust = Justification can not be blank
