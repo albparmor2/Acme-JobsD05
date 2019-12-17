@@ -25,3 +25,5 @@ worker.application.list.label.reference = Referencia
 worker.application.list.label.status = Estado
 worker.application.list.label.moment = Momento
 worker.application.list.label.job.reference = Referencia del trabajo
+
+worker.application.form.error.existApplication = Ya hay una solicitud con esa referencia

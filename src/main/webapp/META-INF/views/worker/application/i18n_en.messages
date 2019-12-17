@@ -26,3 +26,5 @@ worker.application.list.label.reference = Reference
 worker.application.list.label.status = Status
 worker.application.list.label.moment = Moment
 worker.application.list.label.job.reference = Job reference
+
+worker.application.form.error.existApplication = There's already a application with that reference

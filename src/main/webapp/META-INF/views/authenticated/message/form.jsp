@@ -20,13 +20,13 @@
     <jstl:if test="${command != 'create'}">
 	<acme:form-textbox code="authenticated.message.form.label.title" path="title" readonly="true"/>
 	<acme:form-moment code="authenticated.message.form.label.moment" path="moment" readonly="true"/>
-	<acme:form-textarea code="authenticated.message.form.label.tags" path="tags" readonly="true"/>
+	<acme:form-textbox code="authenticated.message.form.label.tags" path="tags" readonly="true"/>
 	<acme:form-textarea code="authenticated.message.form.label.body" path="body" readonly="true"/>
 	</jstl:if>
 	
 	<jstl:if test="${command == 'create' }">
 	<acme:form-textbox code="authenticated.message.form.label.title" path="title"/>
-	<acme:form-textarea code="authenticated.message.form.label.tags" path="tags"/>
+	<acme:form-textbox code="authenticated.message.form.label.tags" path="tags"/>
 	<acme:form-textarea code="authenticated.message.form.label.body" path="body"/>
 	<acme:form-checkbox code="authenticated.message.form.label.confirmMessage" path="confirmMessage"/>
 	<acme:form-submit code="authenticated.message.form.button.create"
