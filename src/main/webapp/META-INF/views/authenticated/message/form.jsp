@@ -22,6 +22,7 @@
 	<acme:form-moment code="authenticated.message.form.label.moment" path="moment" readonly="true"/>
 	<acme:form-textbox code="authenticated.message.form.label.tags" path="tags" readonly="true"/>
 	<acme:form-textarea code="authenticated.message.form.label.body" path="body" readonly="true"/>
+	<acme:form-textbox code="authenticated.messagge.form.label.authenticated.username" path="authenticated.userAccount.username" readonly="true"/>
 	</jstl:if>
 	
 	<jstl:if test="${command == 'create' }">

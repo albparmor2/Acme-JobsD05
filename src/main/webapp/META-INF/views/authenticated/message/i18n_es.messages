@@ -13,6 +13,7 @@ authenticated.message.form.label.title = Titulo:
 authenticated.message.form.label.moment = Momento:
 authenticated.message.form.label.tags = Etiquetas:
 authenticated.message.form.label.body = Cuerpo:
+authenticated.messagge.form.label.authenticated.username = Nombre de usuario del creador:
 authenticated.message.form.label.confirmMessage = Confirmar
 
 authenticated.message.form.button.create = Crear

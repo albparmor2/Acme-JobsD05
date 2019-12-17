@@ -13,6 +13,7 @@ authenticated.message.form.label.title = Title:
 authenticated.message.form.label.moment = Moment:
 authenticated.message.form.label.tags = Tags:
 authenticated.message.form.label.body = Body:
+authenticated.messagge.form.label.authenticated.username = Creator username:
 authenticated.message.form.label.confirmMessage = Confirm
 
 authenticated.message.form.button.create = Create
