@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messageThread.Message;
+import acme.entities.messageThread.Participation;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -26,15 +27,17 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 
 		boolean result;
 		int authenticatedId;
-		int authenticatedThreadId;
+		int creatorId;
+		int threadId;
 		Principal principal;
-		Collection<Integer> usersId;
+		Participation p;
 
 		principal = request.getPrincipal();
 		authenticatedId = principal.getAccountId();
-		usersId = this.repository.findManyUsersId(request.getModel().getInteger("id"));
-		authenticatedThreadId = this.repository.findUserIdByid(request.getModel().getInteger("id"));
-		result = authenticatedThreadId == authenticatedId || usersId.contains(principal.getAccountId());
+		threadId = request.getModel().getInteger("threadId");
+		creatorId = this.repository.findUserIdByThreadId(threadId);
+		p = this.repository.findParticipationByParticipantIdAndThreadId(authenticatedId, threadId);
+		result = creatorId == authenticatedId || p != null;
 		return result;
 	}
 
@@ -53,7 +56,7 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 
 		Collection<Message> result;
 
-		result = this.repository.findMessagesByThreadId(request.getModel().getInteger("id"));
+		result = this.repository.findMessagesByThreadId(request.getModel().getInteger("threadId"));
 
 		return result;
 	}

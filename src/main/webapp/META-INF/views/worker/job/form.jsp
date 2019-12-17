@@ -24,9 +24,11 @@
 	<acme:form-textarea code="worker.job.form.label.description" path="description"/>
 	<acme:form/>
 	
-	<a href=/acme-jobs/worker/duty/list?id=${id}><acme:message code="worker.job.form.label.duty"/><a/>
+	<a href=/acme-jobs/worker/duty/list?id=${id}><acme:message code="worker.job.form.label.duty"/></a>
 	<p></p>
 	<a href=/acme-jobs/worker/audit-record/list?id=${id}><acme:message code="worker.job.form.label.auditRecord"/></a>
+	<p></p>
+	<a href=/acme-jobs/worker/application/create?jobId=${id}><acme:message code="worker.job.form.label.application.create"/></a>
 	<p></p>
 	
 	<acme:form-return code="worker.job.form.button.return"/>
