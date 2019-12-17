@@ -43,13 +43,9 @@
        drop 
        foreign key `FK31l5hvh7p1nx1aw6v649gw3rc`;
 
-    alter table `descriptor` 
-       drop 
-       foreign key `FKgfulfilmwi4hhaquiu7fr5g0g`;
-
     alter table `duty` 
        drop 
-       foreign key `FK3cc3garl37bl7gswreqwr7pj4`;
+       foreign key `FKs2uoxh4i5ya8ptyefae60iao1`;
 
     alter table `employer` 
        drop 
@@ -120,8 +116,6 @@
     drop table if exists `credit_card`;
 
     drop table if exists `customisation`;
-
-    drop table if exists `descriptor`;
 
     drop table if exists `duty`;
 

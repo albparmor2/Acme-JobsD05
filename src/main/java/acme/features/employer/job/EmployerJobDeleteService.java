@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
-import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
@@ -50,7 +49,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment");
+		request.bind(entity, errors, "status");
 	}
 
 	@Override
@@ -59,7 +58,8 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moreInfo", "text");
+		request.unbind(entity, model, "reference", "title", "deadline", "salary");
+		request.unbind(entity, model, "moreInfo", "description");
 	}
 
 	@Override
@@ -86,9 +86,8 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 
 		jobId = request.getModel().getInteger("id");
 		applications = this.repository.findManyApplicationByJobId(jobId);
-		if (!applications.isEmpty()) {
-			errors.add("*", "employer.job.form.error.deleteJob");
-		}
+		errors.state(request, applications.isEmpty(), "*", "employer.job.form.error.deleteJob");
+
 	}
 
 	@Override
@@ -97,19 +96,15 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 
 		Collection<Duty> duties;
-		Descriptor descriptor;
 
 		int jobId = entity.getId();
-		descriptor = this.repository.findDescriptorByJobId(jobId);
-		if (descriptor != null) {
-			duties = this.repository.findDutysByDescriptorId(descriptor.getId());
-			if (!duties.isEmpty()) {
-				for (Duty d : duties) {
-					this.repository.delete(d);
-				}
+		duties = this.repository.findDutysByJobId(jobId);
+		if (!duties.isEmpty()) {
+			for (Duty d : duties) {
+				this.repository.delete(d);
 			}
-			this.repository.delete(descriptor);
 		}
+
 		this.repository.delete(entity);
 	}
 

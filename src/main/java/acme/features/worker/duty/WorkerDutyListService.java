@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Duty;
+import acme.entities.jobs.Job;
+import acme.entities.roles.Employer;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -22,7 +25,19 @@ public class WorkerDutyListService implements AbstractListService<Worker, Duty> 
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
-		return true;
+		boolean result;
+		int jobId;
+		Job job;
+		Employer employer;
+		Principal principal;
+
+		jobId = request.getModel().getInteger("id");
+		job = this.repository.findJobByJobId(jobId);
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override

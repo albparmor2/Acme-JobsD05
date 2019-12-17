@@ -18,8 +18,6 @@ employer.job.form.label.description = Description:
 employer.job.form.label.duty = Duties
 employer.job.form.label.duty.create = Create duty
 employer.job.form.label.auditRecord = Audit records
-employer.job.form.label.descriptor.create = Create descriptor
-employer.job.form.label.descriptor.update = Update descriptor
 
 employer.job.form.button.return = Return
 employer.job.form.button.create = Create

@@ -19,6 +19,4 @@ public interface AuthenticatedJobRepository extends AbstractRepository {
 	@Query("select j from Job j where j.status = 'Published' and j.deadline > ?1")
 	Collection<Job> findActiveJobs(Date d);
 
-	@Query("select d.description from Descriptor d where d.job.id = ?1")
-	String findOneDescriptionOfDescriptorById(int id);
 }

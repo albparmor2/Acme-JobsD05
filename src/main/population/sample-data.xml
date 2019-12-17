@@ -193,50 +193,34 @@
    <property name="title" value="Title example 1"/>
    <property name="description" value="Description example 1"/>
    <property name="percentage" value="47.5"/>
-   <property name="descriptor" ref="descriptor1"/>
+   <property name="job" ref="job1"/>
 </bean>
 
 <bean id="duty2" class="acme.entities.jobs.Duty">
    <property name="title" value="Title example 2"/>
    <property name="description" value="Description example 2"/>
    <property name="percentage" value="52.5"/>
-   <property name="descriptor" ref="descriptor1"/>
+   <property name="job" ref="job1"/>
 </bean>
 
 <bean id="duty3" class="acme.entities.jobs.Duty">
    <property name="title" value="Title example 3"/>
    <property name="description" value="Description example 3"/>
    <property name="percentage" value="53.5"/>
-   <property name="descriptor" ref="descriptor2"/>
+   <property name="job" ref="job2"/>
 </bean>
 
 <bean id="duty4" class="acme.entities.jobs.Duty">
    <property name="title" value="Title example 4"/>
    <property name="description" value="Description example 4"/>
    <property name="percentage" value="46.5"/>
-   <property name="descriptor" ref="descriptor2"/>
+   <property name="job" ref="job2"/>
 </bean>
 
 <bean id="duty5" class="acme.entities.jobs.Duty">
    <property name="title" value="Title example 5"/>
    <property name="description" value="Description example 5"/>
    <property name="percentage" value="100"/>
-   <property name="descriptor" ref="descriptor3"/>
-</bean>
-
-<!-- Descriptors -->
-<bean id="descriptor1" class="acme.entities.jobs.Descriptor">
-   <property name="description" value="Example description"/>
-   <property name="job" ref="job1"/>
-</bean>
-
-<bean id="descriptor2" class="acme.entities.jobs.Descriptor">
-   <property name="description" value="Example description"/>
-   <property name="job" ref="job2"/>
-</bean>
-
-<bean id="descriptor3" class="acme.entities.jobs.Descriptor">
-   <property name="description" value="Example description"/>
    <property name="job" ref="job3"/>
 </bean>
 
@@ -249,6 +233,7 @@
    <property name="deadline" value="2030/12/11 23:59"/>
    <property name="salary" value="€ 15,000.98"/>
    <property name="moreInfo" value="http://www.example.com"/>
+   <property name="description" value="Example description 1"/>
    <property name="employer" ref="employer1Employer"/>
 </bean>
 
@@ -259,6 +244,7 @@
    <property name="deadline" value="2030/12/11 23:59"/>
    <property name="salary" value="€ 20,000.00"/>
    <property name="moreInfo" value="http://www.example.com"/>
+   <property name="description" value="Example description 2"/>
    <property name="employer" ref="employer1Employer"/>
 </bean>
 
@@ -269,6 +255,7 @@
    <property name="deadline" value="2030/12/11 23:59"/>
    <property name="salary" value="€ 20,000.00"/>
    <property name="moreInfo" value="http://www.example.com"/>
+   <property name="description" value="Example description 3"/>
    <property name="employer" ref="employer2Employer"/>
 </bean>
 

@@ -37,7 +37,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		result = employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -58,7 +58,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "title", "deadline", "salary");
-		request.unbind(entity, model, "moreInfo");
+		request.unbind(entity, model, "moreInfo", "description");
 	}
 
 	@Override

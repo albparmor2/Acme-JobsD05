@@ -140,21 +140,13 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `descriptor` (
-       `id` integer not null,
-        `version` integer not null,
-        `description` varchar(1024),
-        `job_id` integer not null,
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `duty` (
        `id` integer not null,
         `version` integer not null,
         `description` varchar(1024),
         `percentage` double precision,
         `title` varchar(255),
-        `descriptor_id` integer not null,
+        `job_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -328,9 +320,6 @@ create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 
     alter table `credit_card` 
        add constraint UK_4cr95y27s8ti6otoyflmma6oy unique (`sponsor_id`);
-
-    alter table `descriptor` 
-       add constraint UK_4iw18njo4d0q8gvnhe04vmctw unique (`job_id`);
 create index IDXfdmpnr8o4phmk81sqsano16r on `job` (`deadline`);
 create index IDX28ur9xm72oo1df9g14xhnh8h3 on `job` (`status`);
 
@@ -405,15 +394,10 @@ create index IDX1e6yyalrv1ka0w3g229hjwy6o on `requesta` (`ticker`);
        foreign key (`sponsor_id`) 
        references `sponsor` (`id`);
 
-    alter table `descriptor` 
-       add constraint `FKgfulfilmwi4hhaquiu7fr5g0g` 
+    alter table `duty` 
+       add constraint `FKs2uoxh4i5ya8ptyefae60iao1` 
        foreign key (`job_id`) 
        references `job` (`id`);
-
-    alter table `duty` 
-       add constraint `FK3cc3garl37bl7gswreqwr7pj4` 
-       foreign key (`descriptor_id`) 
-       references `descriptor` (`id`);
 
     alter table `employer` 
        add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
