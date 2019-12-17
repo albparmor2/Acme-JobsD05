@@ -89,8 +89,9 @@
         `brand` varchar(255),
         `credit_card_number` varchar(255),
         `cvv` varchar(255),
-        `expiration_date` datetime(6),
         `holder` varchar(255),
+        `month` integer,
+        `year` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -114,6 +115,19 @@
         `user_account_id` integer,
         `company` varchar(255),
         `sector` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `credit_card` (
+       `id` integer not null,
+        `version` integer not null,
+        `brand` varchar(255),
+        `credit_card_number` varchar(255),
+        `cvv` varchar(255),
+        `holder` varchar(255),
+        `month` integer,
+        `year` integer,
+        `sponsor_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -263,8 +277,9 @@
         `company` varchar(255),
         `credit_card_number` varchar(255),
         `cvv` varchar(255),
-        `expiration_date` datetime(6),
         `holder` varchar(255),
+        `month` integer,
+        `year` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -309,6 +324,9 @@ create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
 create index IDXof878cqun8l1ynh0ao94bw3au on `audit_record` (`status`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
+
+    alter table `credit_card` 
+       add constraint UK_4cr95y27s8ti6otoyflmma6oy unique (`sponsor_id`);
 
     alter table `descriptor` 
        add constraint UK_4iw18njo4d0q8gvnhe04vmctw unique (`job_id`);
@@ -380,6 +398,11 @@ create index IDX1e6yyalrv1ka0w3g229hjwy6o on `requesta` (`ticker`);
        add constraint FK_6cyha9f1wpj0dpbxrrjddrqed 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `credit_card` 
+       add constraint `FK31l5hvh7p1nx1aw6v649gw3rc` 
+       foreign key (`sponsor_id`) 
+       references `sponsor` (`id`);
 
     alter table `descriptor` 
        add constraint `FKgfulfilmwi4hhaquiu7fr5g0g` 

@@ -39,6 +39,10 @@
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
 
+    alter table `credit_card` 
+       drop 
+       foreign key `FK31l5hvh7p1nx1aw6v649gw3rc`;
+
     alter table `descriptor` 
        drop 
        foreign key `FKgfulfilmwi4hhaquiu7fr5g0g`;
@@ -112,6 +116,8 @@
     drop table if exists `company_record`;
 
     drop table if exists `consumer`;
+
+    drop table if exists `credit_card`;
 
     drop table if exists `customisation`;
 

@@ -30,7 +30,7 @@ public class AdministratorCommercialBannerShowService implements AbstractShowSer
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "url", "creditCardNumber", "holder", "brand", "expirationDate", "cvv");
+		request.unbind(entity, model, "picture", "slogan", "url", "creditCardNumber", "holder", "brand", "month", "year", "cvv");
 	}
 
 	@Override
