@@ -166,7 +166,7 @@
        `id` integer not null,
         `version` integer not null,
         `deadline` datetime(6),
-        `description` varchar(255),
+        `description` varchar(1024),
         `more_info` varchar(255),
         `reference` varchar(255),
         `salary_amount` double precision,
