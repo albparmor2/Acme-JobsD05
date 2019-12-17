@@ -274,7 +274,7 @@
 
 <bean name="job4" class="acme.entities.jobs.Job">
    <property name="reference" value="EMP2-JOB4"/>
-   <property name="status" value="Published"/>
+   <property name="status" value="Draft"/>
    <property name="title" value="Title 3"/>
    <property name="deadline" value="2030/12/11 23:59"/>
    <property name="salary" value="€ 20,000.00"/>

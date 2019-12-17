@@ -17,19 +17,24 @@
 
 <acme:form>
 	<jstl:if test="${command != 'update-rejected'}">
-	<acme:form-textbox code="employer.application.form.label.reference" path="reference"/>
-	<acme:form-moment code="employer.application.form.label.moment" path="moment"/>
-	<acme:form-textbox code="employer.application.form.label.status" path="status"/>
+	<acme:form-textbox code="employer.application.form.label.reference" path="reference" readonly="true"/>
+	<acme:form-moment code="employer.application.form.label.moment" path="moment" readonly="true"/>
+	<acme:form-textbox code="employer.application.form.label.status" path="status" readonly="true"/>
 	</jstl:if>
-	<jstl:if test="${status == 'Rejected' || command == 'update-rejected'}">
+	
+	<jstl:if test="${command == 'update-rejected'}">
 	<acme:form-textbox code="employer.application.form.label.justification" path="justification"/>
 	</jstl:if>
+	<jstl:if test="${status == 'Rejected'}">
+	<acme:form-textbox code="employer.application.form.label.justification" path="justification" readonly="true"/>
+	</jstl:if>
+	
 	<jstl:if test="${command != 'update-rejected'}">
-	<acme:form-textarea code="employer.application.form.label.statement" path="statement"/>
-	<acme:form-textarea code="employer.application.form.label.skills" path="skills"/>
-	<acme:form-textarea code="employer.application.form.label.qualifications" path="qualifications"/>
-	<acme:form-textbox code="employer.application.form.label.job.reference" path="job.reference"/>
-	<acme:form-textbox code="employer.application.form.label.job.title" path="job.title"/>
+	<acme:form-textarea code="employer.application.form.label.statement" path="statement" readonly="true"/>
+	<acme:form-textarea code="employer.application.form.label.skills" path="skills" readonly="true"/>
+	<acme:form-textarea code="employer.application.form.label.qualifications" path="qualifications" readonly="true"/>
+	<acme:form-textbox code="employer.application.form.label.job.reference" path="job.reference" readonly="true"/>
+	<acme:form-textbox code="employer.application.form.label.job.title" path="job.title" readonly="true"/>
 	</jstl:if>
 	<jstl:if test="${status == 'Pending'}">
 	<acme:form-submit code="employer.job.form.button.update.accepted" action="/employer/application/update-accepted"/>
