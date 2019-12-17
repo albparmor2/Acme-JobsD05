@@ -1,15 +1,8 @@
 
 package acme.entities.roles;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-
-import org.hibernate.validator.constraints.CreditCardNumber;
 
 import acme.framework.entities.UserRole;
 import lombok.Getter;
@@ -27,17 +20,16 @@ public class Sponsor extends UserRole {
 	@NotBlank
 	private String				company;
 
-	@CreditCardNumber
 	private String				creditCardNumber;
 
 	private String				holder;
 
 	private String				brand;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				expirationDate;
+	private Integer				month;
 
-	@Pattern(regexp = "^\\d{3,4}$", message = "acme.cvv.error.pattern")
+	private Integer				year;
+
 	private String				cvv;
 
 }

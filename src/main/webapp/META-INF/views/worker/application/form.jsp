@@ -16,7 +16,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="worker.application.form.label.reference" path="reference"/>
+	<acme:form-textbox code="worker.application.form.label.reference" path="reference" placeholder="EEEE-JJJJ:WWWW"/>
+	<jstl:if test="${command != 'create'}">
 	<acme:form-moment code="worker.application.form.label.moment" path="moment"/>
 	<acme:form-textbox code="worker.application.form.label.status" path="status"/>
 	<jstl:if test="${status == 'Rejected'}">
@@ -25,8 +26,14 @@
 	<acme:form-textarea code="worker.application.form.label.statement" path="statement"/>
 	<acme:form-textarea code="worker.application.form.label.skills" path="skills"/>
 	<acme:form-textarea code="worker.application.form.label.qualifications" path="qualifications"/>
+	<jstl:if test="${command != 'create'}">
 	<acme:form-textbox code="worker.application.form.label.job.reference" path="job.reference"/>
 	<acme:form-textbox code="worker.application.form.label.job.title" path="job.title"/>
+	</jstl:if>
+	
+	<input name= "jobId" id="jobId" type="hidden" value="${param.jobId}"/>
+	<acme:form-submit test="${command == 'create'}" code="worker.application.form.button.create"
+	action="/worker/application/create"/>
 	
 	<acme:form-return code="worker.application.form.button.return"/>
 	

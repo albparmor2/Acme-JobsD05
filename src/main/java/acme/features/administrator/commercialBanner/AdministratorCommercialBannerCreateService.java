@@ -43,7 +43,7 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "url", "creditCardNumber", "holder", "brand", "expirationDate", "cvv");
+		request.unbind(entity, model, "picture", "slogan", "url", "creditCardNumber", "holder", "brand", "month", "year", "cvv");
 
 	}
 
@@ -64,10 +64,10 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 
 		Boolean correctFutureDate;
 		Calendar calendar;
-		if (!errors.hasErrors("expirationDate")) {
+		if (!errors.hasErrors("month") || !errors.hasErrors("year")) {
 			calendar = new GregorianCalendar();
-			correctFutureDate = entity.getExpirationDate().after(calendar.getTime());
-			errors.state(request, correctFutureDate, "expirationDate", "acme.date.error.futureDate");
+			correctFutureDate = entity.expirationDate().after(calendar.getTime());
+			errors.state(request, correctFutureDate, "year", "acme.date.error.futureDate");
 		}
 	}
 

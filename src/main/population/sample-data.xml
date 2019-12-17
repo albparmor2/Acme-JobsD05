@@ -485,11 +485,24 @@
  	<property name="creditCardNumber" value="4485715860868875"/>
  	<property name="holder" value="Marco Antonio Fernández González"/>
  	<property name="brand" value="Visa"/>
- 	<property name="expirationDate" value="2020/06/08 14:00"/>
+ 	<property name="month" value="12"/>
+ 	<property name="year" value="2020"/>
  	<property name="cvv" value="9537"/>
    <property name="sponsor" ref="sponsor1sponsor"/>
  </bean>
  
+ 
+ <!-- Credit Card -->
+ 
+ <bean name="creditCard1" class="acme.entities.banners.CreditCard">
+ <property name="creditCardNumber" value="4485715860868875"/>
+ 	<property name="holder" value="Marco Antonio Fernández González"/>
+ 	<property name="brand" value="Visa"/>
+ 	<property name="month" value="1"/>
+ 	<property name="year" value="2020"/>
+ 	<property name="cvv" value="9537"/>
+ 	 <property name="sponsor" ref="sponsor1sponsor"/>
+ </bean>
 
  <!-- Non commercial banners -->
   <bean id="nonCommercialBanner01" class="acme.entities.banners.NonCommercialBanner">
@@ -499,6 +512,36 @@
  	<property name="jingle" value="https://www.youtube.com/watch?v=kJQP7kiw5Fk"/>
     <property name="sponsor" ref="sponsor1sponsor"/>
  </bean>
+ 
+  <!-- Sponsor -->
+ 
+  <bean name="sponsor1UserAccount" class="acme.framework.entities.UserAccount">
+   <property name="username" value="sponsor1"/>
+   <property name="password" value="sponsor1"/>
+   <property name="enabled" value="true"/>
+   <property name="identity">
+       <bean class="acme.datatypes.UserIdentity">
+          <property name="name" value="sponsor"/>
+          <property name="surname" value="One"/>
+          <property name="email" value="sponsor1@acme.com"/>
+       </bean>
+   </property>
+   <property name="roles">
+       <list>
+          <ref bean="sponsor1sponsor"/>
+          <ref bean="sponsor1Authenticated"/>
+       </list>
+   </property>
+</bean>
+
+<bean name="sponsor1sponsor" class="acme.entities.roles.Sponsor">
+   <property name="company" value="sponsor 1, Inc."/>
+   <property name="UserAccount" ref="sponsor1UserAccount"/>
+</bean>
+
+<bean name="sponsor1Authenticated" class="acme.framework.entities.Authenticated">
+   <property name="UserAccount" ref="sponsor1UserAccount"/>
+</bean>
  
   <!-- Auditors -->
 <bean name="auditor1UserAccount" class="acme.framework.entities.UserAccount">
@@ -677,6 +720,31 @@
     
  </bean> 
 
+   <!-- Participation -->
+   <bean id="participation01" class="acme.entities.messageThread.Participation">
+   <property name="username" value="worker1"/>
+   <property name="thread" ref="thread02"/>
+   <property name="participant" ref="worker1Authenticated"/>
+   </bean>
+
+   <bean id="participation02" class="acme.entities.messageThread.Participation">
+   <property name="username" value="worker2"/>
+   <property name="thread" ref="thread02"/>
+   <property name="participant" ref="worker2Authenticated"/>
+   </bean>
+   
+   <bean id="participation03" class="acme.entities.messageThread.Participation">
+   <property name="username" value="auditor1"/>
+   <property name="thread" ref="thread03"/>
+   <property name="participant" ref="auditor1Authenticated"/>
+   </bean>
+   
+   <bean id="participation04" class="acme.entities.messageThread.Participation">
+   <property name="username" value="auditor2"/>
+   <property name="thread" ref="thread03"/>
+   <property name="participant" ref="auditor2Authenticated"/>
+   </bean>
+   
 	<!-- authenticated -->
 	<bean name="authenticatedUserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="authenticated" />
@@ -700,38 +768,5 @@
 		<property name="userAccount" ref="authenticatedUserAccount" />
 	</bean>
   
-  <!-- Sponsor -->
  
-  <bean name="sponsor1UserAccount" class="acme.framework.entities.UserAccount">
-   <property name="username" value="sponsor1"/>
-   <property name="password" value="sponsor1"/>
-   <property name="enabled" value="true"/>
-   <property name="identity">
-       <bean class="acme.datatypes.UserIdentity">
-          <property name="name" value="sponsor"/>
-          <property name="surname" value="One"/>
-          <property name="email" value="sponsor1@acme.com"/>
-       </bean>
-   </property>
-   <property name="roles">
-       <list>
-          <ref bean="sponsor1sponsor"/>
-          <ref bean="sponsor1Authenticated"/>
-       </list>
-   </property>
-</bean>
-
-<bean name="sponsor1sponsor" class="acme.entities.roles.Sponsor">
-   <property name="company" value="sponsor 1, Inc."/>
-   <property name="creditCardNumber" value="4485715860868875"/>
- 	<property name="holder" value="Marco Antonio Fernández González"/>
- 	<property name="brand" value="Visa"/>
- 	<property name="expirationDate" value="2020/06/08 14:00"/>
- 	<property name="cvv" value="9537"/>
-   <property name="UserAccount" ref="sponsor1UserAccount"/>
-</bean>
-
-<bean name="sponsor1Authenticated" class="acme.framework.entities.Authenticated">
-   <property name="UserAccount" ref="sponsor1UserAccount"/>
-</bean>
 </beans>
