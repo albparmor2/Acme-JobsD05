@@ -20,6 +20,8 @@
 	<jstl:if test="${command != 'create'}">
 	<acme:form-moment code="worker.application.form.label.moment" path="moment"/>
 	<acme:form-textbox code="worker.application.form.label.status" path="status"/>
+	<jstl:if test="${status == 'Rejected'}">
+	<acme:form-textbox code="worker.application.form.label.justification" path="justification"/>
 	</jstl:if>
 	<acme:form-textarea code="worker.application.form.label.statement" path="statement"/>
 	<acme:form-textarea code="worker.application.form.label.skills" path="skills"/>
