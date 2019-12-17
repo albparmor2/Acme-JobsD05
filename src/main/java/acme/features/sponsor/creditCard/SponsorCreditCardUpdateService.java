@@ -31,6 +31,8 @@ public class SponsorCreditCardUpdateService implements AbstractUpdateService<Spo
 		assert entity != null;
 		assert errors != null;
 
+		request.bind(entity, errors);
+
 	}
 
 	@Override
