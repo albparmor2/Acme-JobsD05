@@ -8,14 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-employer.duty.form.label.title = Título:
-employer.duty.form.label.description = Descripción:
-employer.duty.form.label.percentage = Porcentaje:
+authenticated.worker.worker.form.title.create = Hazte trabajador
+authenticated.worker.worker.form.title.update = Actualiza tus datos de trabajador
 
-employer.duty.form.button.return = Volver
-employer.duty.form.button.create = Crear
-employer.duty.form.button.update = Editar
-employer.duty.form.button.delete = Borrar
+authenticated.worker.worker.form.label.qualificationsRecord = Cualificaciones
+authenticated.worker.worker.form.label.skillsRecord = Habilidades
 
-employer.duty.list.label.title = Título
-employer.duty.list.label.percentage = Porcentaje
+authenticated.worker.worker.form.button.create = Registrar
+authenticated.worker.worker.form.button.update = Editar
+authenticated.worker.worker.form.button.return = Volver

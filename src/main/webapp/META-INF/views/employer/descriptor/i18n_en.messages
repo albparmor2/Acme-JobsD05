@@ -1,4 +1,4 @@
-# i18n_es.messages
+# i18n_en.messages
 #
 # Copyright (c) 2019 Rafael Corchuelo.
 #
@@ -8,14 +8,6 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-employer.duty.form.label.title = Título:
-employer.duty.form.label.description = Descripción:
-employer.duty.form.label.percentage = Porcentaje:
-
-employer.duty.form.button.return = Volver
-employer.duty.form.button.create = Crear
-employer.duty.form.button.update = Editar
-employer.duty.form.button.delete = Borrar
-
-employer.duty.list.label.title = Título
-employer.duty.list.label.percentage = Porcentaje
+employer.descriptor.form.label.description = Description:
+employer.descriptor.form.button.create = Create
+employer.descriptor.form.button.update = Update

@@ -8,12 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+authenticated.worker.worker.form.title.create = Become a worker
+authenticated.worker.worker.form.title.update = Update your worker data
 
-authenticated.thread.form.label.title = Title:
-authenticated.thread.form.label.moment = Moment:
-authenticated.thread.form.label.messages = Messages
+authenticated.worker.worker.form.label.qualificationsRecord = Qualifications
+authenticated.worker.worker.form.label.skillsRecord = Skills
 
-authenticated.thread.form.button.return  = Return
-
-authenticated.thread.list.label.moment = Moment
-authenticated.thread.list.label.title = Title
+authenticated.worker.worker.form.button.create = Register
+authenticated.worker.worker.form.button.update = Update
+authenticated.worker.worker.form.button.return = Return
