@@ -166,7 +166,7 @@
        `id` integer not null,
         `version` integer not null,
         `deadline` datetime(6),
-        `description` varchar(255),
+        `description` varchar(1024),
         `more_info` varchar(255),
         `reference` varchar(255),
         `salary_amount` double precision,
@@ -264,7 +264,6 @@
         `version` integer not null,
         `moment` datetime(6),
         `title` varchar(255),
-        `users` varchar(255),
         `creator_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;

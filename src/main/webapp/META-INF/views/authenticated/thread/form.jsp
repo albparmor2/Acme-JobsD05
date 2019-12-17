@@ -18,7 +18,6 @@
 <acme:form readonly="true">
 	<acme:form-textbox code="authenticated.thread.form.label.title" path="title"/>
 	<acme:form-moment code="authenticated.thread.form.label.moment" path="moment"/>
-	<acme:form-textbox code="authenticated.thread.form.label.users" path="users"/>
 	
 	
 	
