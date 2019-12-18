@@ -465,7 +465,7 @@ Shout
       <x>1687</x>
       <y>399</y>
       <w>161</w>
-      <h>56</h>
+      <h>35</h>
     </coordinates>
     <panel_attributes>NonCommercialBanner
 --
@@ -615,13 +615,13 @@ Auditor
     <coordinates>
       <x>1050</x>
       <y>441</y>
-      <w>70</w>
+      <w>77</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m1= 1
 m2=0..*
-Writed by &gt;</panel_attributes>
+Written by &gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
@@ -636,7 +636,7 @@ Writed by &gt;</panel_attributes>
 --
 + title: String {NotBlank}
 + status: Status {NotNull}
-+ creation: String {NotNull, Temporal(TIMESTAMP)} 
++ creation: String {Temporal(TIMESTAMP)} 
 + body: String {NotBlank, Column(Length=1024)}
 + / finalMode: boolean {Transient} 
 </panel_attributes>
@@ -664,7 +664,7 @@ Status
       <x>1141</x>
       <y>623</y>
       <w>280</w>
-      <h>91</h>
+      <h>98</h>
     </coordinates>
     <panel_attributes>Application
 --
@@ -674,7 +674,7 @@ Status
 + statement: String {NotBlank, Column(Length=1024)}
 + skills: String {NotBlank, Column(Length=1024)}
 + qualifications: String {NotBlank, Column(Length=1024)}
-</panel_attributes>
++ justification: String {Column(Length=1024)}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -791,7 +791,7 @@ Sponsor
     <panel_attributes>lt=&lt;-x
 m1= 1
 m2=0..*
-Writed by &gt;</panel_attributes>
+Written by &gt;</panel_attributes>
     <additional_attributes>10.0;220.0;510.0;220.0;510.0;10.0</additional_attributes>
   </element>
   <element>
@@ -830,7 +830,7 @@ Status
     <id>UMLClass</id>
     <coordinates>
       <x>1162</x>
-      <y>0</y>
+      <y>21</y>
       <w>210</w>
       <h>49</h>
     </coordinates>
@@ -858,43 +858,43 @@ Written by &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1176</x>
-      <y>42</y>
+      <y>63</y>
       <w>77</w>
-      <h>105</h>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m1= 1
 m2=0..*
 Belongs to &gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>847</x>
-      <y>35</y>
+      <y>56</y>
       <w>329</w>
-      <h>231</h>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m1= 1
 m2=0..*
 Created by &gt;</panel_attributes>
-    <additional_attributes>10.0;310.0;120.0;10.0;450.0;10.0</additional_attributes>
+    <additional_attributes>10.0;280.0;120.0;10.0;450.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>847</x>
-      <y>7</y>
+      <y>28</y>
       <w>329</w>
-      <h>238</h>
+      <h>217</h>
     </coordinates>
     <panel_attributes>lt=x-&gt;
 m1=0..*
 m2=1..*
 &lt; Participate in </panel_attributes>
-    <additional_attributes>10.0;320.0;10.0;10.0;450.0;10.0</additional_attributes>
+    <additional_attributes>10.0;290.0;10.0;10.0;450.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -957,5 +957,60 @@ m1= 1
 m2=0..*
 Written by &gt;</panel_attributes>
     <additional_attributes>270.0;10.0;20.0;150.0;20.0;300.0;60.0;300.0;60.0;510.0;160.0;510.0;160.0;590.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>553</y>
+      <w>98</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1= 1
+m2=0..*
+Belongs to &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1456</x>
+      <y>7</y>
+      <w>140</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Participation
+--
++ username: String {NotBlank}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1365</x>
+      <y>21</y>
+      <w>105</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1= 1
+m2=0..*
+Participate in &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>819</x>
+      <y>7</y>
+      <w>651</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1= 1
+m2=0..*
+Is an &gt;</panel_attributes>
+    <additional_attributes>10.0;320.0;10.0;10.0;910.0;10.0</additional_attributes>
   </element>
 </diagram>
