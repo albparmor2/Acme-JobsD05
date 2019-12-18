@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.customisations.Customisation;
-import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.jobs.Status;
@@ -84,26 +83,23 @@ public class EmployerJobUpdatePublishService implements AbstractUpdateService<Em
 
 		int jobId;
 		String description;
-		Descriptor d;
 		Collection<Duty> duties;
 
 		if (!errors.hasErrors("description")) {
 			description = entity.getDescription();
-			jobId = request.getModel().getInteger("id");
-			d = this.repository.findDescriptorByJobId(jobId);
-			if (description != null && description != "") {
-				duties = this.repository.findDutysByDescriptorId(d.getId());
-				errors.state(request, !duties.isEmpty(), "*", "employer.job.form.error.duty");
-				if (!duties.isEmpty()) {
-					Double percentageTotal = 0.0;
-					for (Duty duty : duties) {
-						percentageTotal += duty.getPercentage();
-					}
-					errors.state(request, percentageTotal == 100.00, "*", "employer.job.form.error.duty");
-				}
-			} else {
-				errors.state(request, d != null, "*", "employer.job.form.error.descriptor");
+			errors.state(request, description != "", "description", "employer.job.form.error.descriptor");
+		}
+
+		jobId = request.getModel().getInteger("id");
+		duties = this.repository.findDutysByJobId(jobId);
+		errors.state(request, !duties.isEmpty(), "*", "employer.job.form.error.duty");
+
+		if (!duties.isEmpty()) {
+			Double percentageTotal = 0.0;
+			for (Duty duty : duties) {
+				percentageTotal += duty.getPercentage();
 			}
+			errors.state(request, percentageTotal == 100.00, "*", "employer.job.form.error.duty");
 		}
 
 		Customisation c;

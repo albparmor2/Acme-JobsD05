@@ -2,14 +2,12 @@
 package acme.features.employer.application;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
-import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -43,17 +41,11 @@ public class EmployerApplicationListMineService implements AbstractListService<E
 	public List<Application> findMany(final Request<Application> request) {
 		assert request != null;
 
-		Collection<Job> jobs;
 		List<Application> result = new ArrayList<>();
 		Principal principal;
 
 		principal = request.getPrincipal();
-		jobs = this.repository.findManyJobsByEmployerId(principal.getActiveRoleId());
-		for (Job j : jobs) {
-			List<Application> a;
-			a = this.repository.findManyByJobId(j.getId());
-			result.addAll(a);
-		}
+		result = this.repository.findManyApplicationByEmployerId(principal.getAccountId());
 		return result;
 	}
 

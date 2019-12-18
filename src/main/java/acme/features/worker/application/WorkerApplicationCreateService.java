@@ -82,6 +82,13 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
+		Application a;
+
+		if (!errors.hasErrors("reference")) {
+			a = this.repository.existApplication(entity.getReference());
+			errors.state(request, a == null, "reference", "worker.application.form.error.existApplication");
+		}
+
 	}
 
 	@Override

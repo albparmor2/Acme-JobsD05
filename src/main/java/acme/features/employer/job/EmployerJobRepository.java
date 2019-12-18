@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.applications.Application;
 import acme.entities.customisations.Customisation;
-import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
@@ -23,9 +22,6 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select j from Job j where j.employer.id = ?1")
 	Collection<Job> findManyByEmployerId(int employerId);
 
-	@Query("select d.description from Descriptor d where d.job.id = ?1")
-	String findOneDescriptionOfDescriptorById(int id);
-
 	@Query("select a from Application a where a.job.id = ?1")
 	Collection<Application> findManyApplicationByJobId(int id);
 
@@ -35,11 +31,8 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select e from Employer e where e.userAccount.id = ?1")
 	Employer findEmployerById(int id);
 
-	@Query("select d from Duty d where d.descriptor.id = ?1")
-	Collection<Duty> findDutysByDescriptorId(int id);
-
-	@Query("select de from Descriptor de where de.job.id = ?1")
-	Descriptor findDescriptorByJobId(int id);
+	@Query("select d from Duty d where d.job.id = ?1")
+	Collection<Duty> findDutysByJobId(int id);
 
 	@Query("select c from Customisation c")
 	Customisation findCustomisation();

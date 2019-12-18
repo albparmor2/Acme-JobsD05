@@ -54,12 +54,9 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 
 		Job result;
 		int id;
-		String description;
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneJobById(id);
-		description = this.repository.findOneDescriptionOfDescriptorById(id);
-		result.setDescription(description);
 
 		return result;
 	}

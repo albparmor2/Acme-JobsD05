@@ -4,7 +4,6 @@ package acme.features.employer.duty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
@@ -28,7 +27,6 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		boolean result;
 		int jobId;
 		Job job;
-		Descriptor d;
 		Employer employer;
 		Principal principal;
 
@@ -36,8 +34,7 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		job = this.repository.findJobByJobId(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		d = this.repository.findDescriptorByJobId(jobId);
-		result = d != null && employer.getUserAccount().getId() == principal.getAccountId();
+		result = employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -68,8 +65,8 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		result = new Duty();
 		int jobId;
 		jobId = request.getModel().getInteger("jobId");
-		Descriptor d = this.repository.findDescriptorByJobId(jobId);
-		result.setDescriptor(d);
+		Job d = this.repository.findJobByJobId(jobId);
+		result.setJob(d);
 		return result;
 	}
 

@@ -32,7 +32,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		result = employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -54,12 +54,9 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 
 		Job result;
 		int id;
-		String description;
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneJobById(id);
-		description = this.repository.findOneDescriptionOfDescriptorById(id);
-		result.setDescription(description);
 
 		return result;
 	}

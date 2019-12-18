@@ -60,7 +60,6 @@ public class Job extends DomainEntity {
 	@URL
 	private String				moreInfo;
 
-	//Será la descripción del descriptor al cual el trabajo este referenciado
 	@Column(length = 1024)
 	private String				description;
 

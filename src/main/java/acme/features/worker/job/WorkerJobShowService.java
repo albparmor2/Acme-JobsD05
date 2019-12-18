@@ -59,8 +59,6 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneJobById(id);
-		description = this.repository.findOneDescriptionOfDescriptorById(id);
-		result.setDescription(description);
 
 		return result;
 	}
