@@ -142,7 +142,7 @@
 <!-- Applications -->
 <bean id="application1" class="acme.entities.applications.Application">
    <property name="reference" value="EMP1-JOB1:WORK1"/>
-   <property name="moment" value="2019/11/01 10:35"/>
+   <property name="moment" value="2019/12/13 10:35"/>
    <property name="status" value="Pending"/>
    <property name="justification" value=""/>
    <property name="statement" value="Example statement 1"/>
@@ -154,7 +154,7 @@
 
 <bean id="application2" class="acme.entities.applications.Application">
    <property name="reference" value="EMP1-JOB2:WORK1"/>
-   <property name="moment" value="2019/11/20 14:00"/>
+   <property name="moment" value="2019/12/18 14:00"/>
    <property name="status" value="Accepted"/>
    <property name="justification" value=""/>
    <property name="statement" value="Example statement 2"/>
@@ -166,7 +166,7 @@
 
 <bean id="application3" class="acme.entities.applications.Application">
    <property name="reference" value="EMP2-JOB3:WORK1"/>
-   <property name="moment" value="2019/11/20 14:00"/>
+   <property name="moment" value="2019/12/18 14:00"/>
    <property name="status" value="Accepted"/>
    <property name="justification" value=""/>
    <property name="statement" value="Example statement 3"/>
@@ -178,7 +178,7 @@
 
 <bean id="application4" class="acme.entities.applications.Application">
    <property name="reference" value="EMP2-JOB3:WORK2"/>
-   <property name="moment" value="2019/11/20 14:00"/>
+   <property name="moment" value="2019/12/15 14:00"/>
    <property name="status" value="Rejected"/>
    <property name="justification" value="Not a good application!"/>
    <property name="statement" value="Example statement 4"/>
@@ -186,6 +186,50 @@
    <property name="qualifications" value="degree in software engineering"/>
    <property name="job" ref="job3"/>
    <property name="worker" ref="worker2Worker"/>
+</bean>
+   
+<bean id="application5" class="acme.entities.applications.Application">
+   <property name="reference" value="EMP2-JOB1:WORK2"/>
+   <property name="moment" value="2019/12/10 14:00"/>
+   <property name="status" value="Rejected"/>
+   <property name="statement" value="Example statement 4"/>
+   <property name="skills" value="Very good work in team"/>
+   <property name="qualifications" value="degree in software engineering"/>
+   <property name="job" ref="job1"/>
+   <property name="worker" ref="worker2Worker"/>
+</bean>
+
+<bean id="application6" class="acme.entities.applications.Application">
+   <property name="reference" value="EMP2-JOB2:WORK2"/>
+   <property name="moment" value="2019/12/16 14:00"/>
+   <property name="status" value="Accepted"/>
+   <property name="statement" value="Example statement 5"/>
+   <property name="skills" value="Very good work in team"/>
+   <property name="qualifications" value="degree in software engineering"/>
+   <property name="job" ref="job2"/>
+   <property name="worker" ref="worker2Worker"/>
+</bean>
+
+<bean id="application7" class="acme.entities.applications.Application">
+   <property name="reference" value="EMP2-JOB4:WORK2"/>
+   <property name="moment" value="2019/12/08 10:00"/>
+   <property name="status" value="Pending"/>
+   <property name="statement" value="Example statement 4"/>
+   <property name="skills" value="Very good work in team"/>
+   <property name="qualifications" value="degree in software engineering"/>
+   <property name="job" ref="job4"/>
+   <property name="worker" ref="worker2Worker"/>
+</bean>
+
+<bean id="application8" class="acme.entities.applications.Application">
+   <property name="reference" value="EMP2-JOB4:WORK1"/>
+   <property name="moment" value="2019/12/08 14:00"/>
+   <property name="status" value="Pending"/>
+   <property name="statement" value="Example statement 5"/>
+   <property name="skills" value="Very good work in team"/>
+   <property name="qualifications" value="degree in software engineering"/>
+   <property name="job" ref="job3"/>
+   <property name="worker" ref="worker1Worker"/>
 </bean>
  
 <!-- Mandatory duties -->

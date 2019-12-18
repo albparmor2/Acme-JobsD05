@@ -1,6 +1,8 @@
 
 package acme.features.administrator.chart;
 
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -20,4 +22,13 @@ public interface AdministratorChartRepository extends AbstractRepository {
 
 	@Query("select a.status,count(a) FROM Application a group by a.status order by a.status")
 	Object[] findApplicationStatus();
+
+	@Query("select date(a.moment),count(a) FROM Application a where a.moment > ?1 and a.status = 0")
+	Object[] findRejectedApplicationsLastFourWeeks(Date d);
+
+	@Query("select date(a.moment),count(a) FROM Application a where a.moment > ?1 and a.status = 1")
+	Object[] findPendingApplicationsLastFourWeeks(Date d);
+
+	@Query("select date(a.moment),count(a) FROM Application a where a.moment > ?1 and a.status = 2")
+	Object[] findAcceptedApplicationsLastFourWeeks(Date d);
 }

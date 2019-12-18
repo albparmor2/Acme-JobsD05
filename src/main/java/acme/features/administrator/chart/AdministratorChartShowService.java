@@ -1,6 +1,11 @@
 
 package acme.features.administrator.chart;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +37,10 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 
 		request.unbind(entity, model, "numberOfCompaniesGroupedBySector", "numberOfInvestorGroupedBySector");
 		request.unbind(entity, model, "ratioOfJobsGroupedByStatus", "ratioOfApplicationsGroupedByStatus");
+		request.unbind(entity, model, "numberOfRejectedApplicationsLastFourWeeks");
+		request.unbind(entity, model, "numberOfPendingApplicationsLastFourWeeks");
+		request.unbind(entity, model, "numberOfAcceptedApplicationsLastFourWeeks");
+		request.unbind(entity, model, "allDatesBeforeFourWeeks");
 	}
 
 	@Override
@@ -47,6 +56,27 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		d.setRatioOfJobsGroupedByStatus(jobsByStatus);
 		Object[] applicationsByStatus = this.repository.findApplicationStatus();
 		d.setRatioOfApplicationsGroupedByStatus(applicationsByStatus);
+
+		Calendar calendar;
+		String[] allDatesBeforeFourWeeks = new String[28];
+
+		calendar = new GregorianCalendar();
+		calendar.setTime(new Date(System.currentTimeMillis()));
+		calendar.add(Calendar.DATE, -28);
+		Object[] rejectedApplicationsByDays = this.repository.findRejectedApplicationsLastFourWeeks(calendar.getTime());
+		d.setNumberOfRejectedApplicationsLastFourWeeks(rejectedApplicationsByDays);
+		Object[] pendingApplicationsByDays = this.repository.findPendingApplicationsLastFourWeeks(calendar.getTime());
+		d.setNumberOfPendingApplicationsLastFourWeeks(pendingApplicationsByDays);
+		Object[] acceptedApplicationsByDays = this.repository.findAcceptedApplicationsLastFourWeeks(calendar.getTime());
+		d.setNumberOfAcceptedApplicationsLastFourWeeks(acceptedApplicationsByDays);
+
+		//Obteniendo todas las fechas de 28 días anteriores = 4 semanas anteriores
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+		for (Integer i = 0; i < 28; i++) {
+			calendar.add(Calendar.DAY_OF_MONTH, 1);
+			allDatesBeforeFourWeeks[i] = formatoFecha.format(calendar.getTime());
+		}
+		d.setAllDatesBeforeFourWeeks(allDatesBeforeFourWeeks);
 
 		return d;
 	}
