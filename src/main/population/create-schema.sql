@@ -26,6 +26,7 @@
     create table `application` (
        `id` integer not null,
         `version` integer not null,
+        `justification` varchar(1024),
         `moment` datetime(6),
         `qualifications` varchar(1024),
         `reference` varchar(255),
@@ -55,6 +56,16 @@
         `user_account_id` integer,
         `firm` varchar(255),
         `responsibility_statement` varchar(1024),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `auditor_request` (
+       `id` integer not null,
+        `version` integer not null,
+        `firm` varchar(255),
+        `responsibility_statement` varchar(1024),
+        `status` integer,
+        `authenticated_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -383,6 +394,11 @@ create index IDX1e6yyalrv1ka0w3g229hjwy6o on `requesta` (`ticker`);
        add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `auditor_request` 
+       add constraint `FKjonb5lt00rmb868h6gjdjh1to` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
 
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 

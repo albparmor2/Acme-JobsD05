@@ -15,6 +15,11 @@ auditor.audit-record.form.label.body = Cuerpo:
 auditor.audit-record.form.label.job.reference = Referencia del trabajo:
 auditor.audit-record.form.label.job.title = Título del trabajo:
 
+auditor.audit-record.form.button.update = Actualizar
+auditor.audit-record.form.button.update-publish = Publicar
+auditor.audit-record.form.button.create = Crear
+auditor.audit-record.form.button.delete = Eliminar
+
 auditor.audit-record.form.button.return = Volver
 
 auditor.audit-record.list.label.title = Título

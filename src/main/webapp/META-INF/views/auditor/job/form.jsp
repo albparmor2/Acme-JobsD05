@@ -27,6 +27,8 @@
 	<p></p>
 	<a href=/acme-jobs/auditor/audit-record/list?id=${id}><acme:message code="auditor.job.form.label.auditRecord"/></a>
 	<p></p>
+	<a href=/acme-jobs/auditor/audit-record/create?jobId=${id}><acme:message code="auditor.audit-record.form.label.create"/></a>
+	<p></p>
 	
 	<acme:form-return code="auditor.job.form.button.return"/>
 	

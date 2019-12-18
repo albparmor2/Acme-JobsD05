@@ -144,6 +144,7 @@
    <property name="reference" value="EMP1-JOB1:WORK1"/>
    <property name="moment" value="2019/11/01 10:35"/>
    <property name="status" value="Pending"/>
+   <property name="justification" value=""/>
    <property name="statement" value="Example statement 1"/>
    <property name="skills" value="Very good work in team"/>
    <property name="qualifications" value="degree in software engineering"/>
@@ -155,6 +156,7 @@
    <property name="reference" value="EMP1-JOB2:WORK1"/>
    <property name="moment" value="2019/11/20 14:00"/>
    <property name="status" value="Accepted"/>
+   <property name="justification" value=""/>
    <property name="statement" value="Example statement 2"/>
    <property name="skills" value="Very good work in team"/>
    <property name="qualifications" value="degree in software engineering"/>
@@ -166,6 +168,7 @@
    <property name="reference" value="EMP2-JOB3:WORK1"/>
    <property name="moment" value="2019/11/20 14:00"/>
    <property name="status" value="Accepted"/>
+   <property name="justification" value=""/>
    <property name="statement" value="Example statement 3"/>
    <property name="skills" value="Very good work in team"/>
    <property name="qualifications" value="degree in software engineering"/>
@@ -177,6 +180,7 @@
    <property name="reference" value="EMP2-JOB3:WORK2"/>
    <property name="moment" value="2019/11/20 14:00"/>
    <property name="status" value="Rejected"/>
+   <property name="justification" value="Not a good application!"/>
    <property name="statement" value="Example statement 4"/>
    <property name="skills" value="Very good work in team"/>
    <property name="qualifications" value="degree in software engineering"/>
@@ -270,7 +274,7 @@
 
 <bean name="job4" class="acme.entities.jobs.Job">
    <property name="reference" value="EMP2-JOB4"/>
-   <property name="status" value="Published"/>
+   <property name="status" value="Draft"/>
    <property name="title" value="Title 3"/>
    <property name="deadline" value="2030/12/11 23:59"/>
    <property name="salary" value="€ 20,000.00"/>
