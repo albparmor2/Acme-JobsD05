@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.banners.CommercialBanner;
 import acme.entities.banners.CreditCard;
+import acme.entities.customisations.Customisation;
 import acme.entities.roles.Sponsor;
+import acme.features.antiSpamFilter.AntiSpamFilter;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -78,6 +80,19 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		Date d = c.expirationDate();
 		Calendar cal = new GregorianCalendar();
 		errors.state(request, d.after(cal.getTime()), "year", "sponsor.error.form.commercial-banner.creditCard.date");
+
+		Customisation cu = this.repository.findCustomisation();
+		String spamWords = cu.getSpamWord();
+		Double threshold = cu.getThreshold();
+		AntiSpamFilter asf = new AntiSpamFilter();
+		String[] separateSpamWord = asf.separateSpamWord(spamWords);
+
+		if (!errors.hasErrors("slogan")) {
+			Boolean isSpam = asf.isSpam(separateSpamWord, entity.getSlogan(), threshold);
+			errors.state(request, !isSpam, "slogan", "acme.spam.error.isSpam");
+
+		}
+
 	}
 
 	@Override

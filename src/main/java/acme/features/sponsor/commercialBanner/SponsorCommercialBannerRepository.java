@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.banners.CommercialBanner;
 import acme.entities.banners.CreditCard;
+import acme.entities.customisations.Customisation;
 import acme.entities.roles.Sponsor;
 import acme.framework.repositories.AbstractRepository;
 
@@ -25,5 +26,8 @@ public interface SponsorCommercialBannerRepository extends AbstractRepository {
 
 	@Query("select c from CreditCard c where c.sponsor.userAccount.id = ?1")
 	CreditCard findCreditCardBySponsorId(int id);
+
+	@Query("select cu from Customisation cu")
+	Customisation findCustomisation();
 
 }
