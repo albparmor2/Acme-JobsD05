@@ -19,4 +19,8 @@ public class Chart implements Serializable {
 	Object[]					numberOfInvestorGroupedBySector;
 	Object[]					ratioOfJobsGroupedByStatus;
 	Object[]					ratioOfApplicationsGroupedByStatus;
+	Object[]					numberOfRejectedApplicationsLastFourWeeks;
+	Object[]					numberOfPendingApplicationsLastFourWeeks;
+	Object[]					numberOfAcceptedApplicationsLastFourWeeks;
+	String[]					allDatesBeforeFourWeeks;
 }

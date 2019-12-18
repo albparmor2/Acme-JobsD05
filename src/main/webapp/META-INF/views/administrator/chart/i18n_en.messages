@@ -12,3 +12,7 @@ administrator.chart.form.label.companyBySector = Companies grouped by sector:
 administrator.chart.form.label.InvestorBySector = Investors grouped by sector:
 administrator.chart.form.label.JobsByStatus = Jobs grouped by status:
 administrator.chart.form.label.ApplicationsByStatus = Applications grouped by status:
+administrator.chart.form.label.TimeSeriesApplications = Applications last four weeks:
+administrator.chart.form.label.AcceptedAplications = Accepted applications
+administrator.chart.form.label.PendingAplications = Pending applications
+administrator.chart.form.label.RejectedAplications = Rejected applications
