@@ -17,6 +17,13 @@ sponsor.commercial-banner.form.label.brand = Brand:
 sponsor.commercial-banner.form.label.month = Month:
 sponsor.commercial-banner.form.label.year = Year:
 sponsor.commercial-banner.form.label.cvv = CVV:
+sponsor.error.form.commercial-banner.creditCard = The sponsor must be create a credit card. go to sponsor data in the section "Account"
+sponsor.error.form.commercial-banner.creditCard.date = Your credit card is expired
+sponsor.error.form.creditCard.date = Your credit card can't be expired.
+
+sponsor.commercial-banner.form.button.update = Update
+sponsor.commercial-banner.form.button.create = Create
+sponsor.commercial-banner.form.button.delete = Delete
 sponsor.commercial-banner.form.button.return = Return
 
 

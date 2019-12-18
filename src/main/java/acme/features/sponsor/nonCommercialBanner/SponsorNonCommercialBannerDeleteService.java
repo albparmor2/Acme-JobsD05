@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.banners.NonCommercialBanner;
 import acme.entities.roles.Sponsor;
+import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class SponsorNonCommercialBannerShowService implements AbstractShowService<Sponsor, NonCommercialBanner> {
+public class SponsorNonCommercialBannerDeleteService implements AbstractDeleteService<Sponsor, NonCommercialBanner> {
 
 	@Autowired
 	SponsorNonCommercialBannerRepository repository;
@@ -21,19 +21,20 @@ public class SponsorNonCommercialBannerShowService implements AbstractShowServic
 	@Override
 	public boolean authorise(final Request<NonCommercialBanner> request) {
 		assert request != null;
-		boolean result;
-		int ncbId;
-		NonCommercialBanner ncb;
-		Sponsor sponsor;
-		Principal principal;
 
-		ncbId = request.getModel().getInteger("id");
-		ncb = this.repository.findOneNonCommercialBannerById(ncbId);
-		sponsor = ncb.getSponsor();
-		principal = request.getPrincipal();
-		result = sponsor.getUserAccount().getId() == principal.getAccountId();
+		boolean res;
+		NonCommercialBanner ncb = this.repository.findOneNonCommercialBannerById(request.getModel().getInteger("id"));
+		res = ncb.getSponsor().getUserAccount().getId() == request.getPrincipal().getAccountId();
+		return res;
+	}
 
-		return result;
+	@Override
+	public void bind(final Request<NonCommercialBanner> request, final NonCommercialBanner entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors);
 
 	}
 
@@ -44,6 +45,7 @@ public class SponsorNonCommercialBannerShowService implements AbstractShowServic
 		assert model != null;
 
 		request.unbind(entity, model, "picture", "slogan", "url", "jingle");
+
 	}
 
 	@Override
@@ -57,6 +59,23 @@ public class SponsorNonCommercialBannerShowService implements AbstractShowServic
 		result = this.repository.findOneNonCommercialBannerById(id);
 
 		return result;
+	}
+
+	@Override
+	public void validate(final Request<NonCommercialBanner> request, final NonCommercialBanner entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+	}
+
+	@Override
+	public void delete(final Request<NonCommercialBanner> request, final NonCommercialBanner entity) {
+		assert request != null;
+		assert entity != null;
+
+		this.repository.delete(entity);
+
 	}
 
 }

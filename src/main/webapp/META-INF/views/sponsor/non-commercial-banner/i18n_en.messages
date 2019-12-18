@@ -12,6 +12,10 @@ sponsor.non-commercial-banner.form.label.picture = Picture:
 sponsor.non-commercial-banner.form.label.slogan = Slogan:
 sponsor.non-commercial-banner.form.label.url = Url:
 sponsor.non-commercial-banner.form.label.jingle = Jingle:
+
+sponsor.non-commercial-banner.form.button.update = Update
+sponsor.non-commercial-banner.form.button.create = Create
+sponsor.non-commercial-banner.form.button.delete = Delete
 sponsor.non-commercial-banner.form.button.return = Return
 
 
