@@ -42,7 +42,11 @@ public class AuthenticatedParticipationCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert errors != null;
 
+		Authenticated a;
+		a = this.repository.findOneAuthenticatedByUsername(request.getModel().getString("username"));
+		entity.setParticipant(a);
 		request.bind(entity, errors);
+
 	}
 
 	@Override
@@ -59,18 +63,11 @@ public class AuthenticatedParticipationCreateService implements AbstractCreateSe
 		Participation result;
 		Thread t;
 		int threadId;
-		Authenticated a;
 
 		result = new Participation();
 		threadId = request.getModel().getInteger("threadId");
 		t = this.repository.findThreadById(threadId);
 		result.setThread(t);
-		//Problema por el que hago esto. Hasta que no pongo el nombre del autentificado, no tengo
-		//el autentificado a añadir. Por lo que no puedo inicializarlo aquí ya que no tengo
-		//todavía el autentificado elegido. Así que lo inicializo con otro el cual no va a ser
-		//participante
-		a = this.repository.findOneAuthenticatedByUsername(request.getPrincipal().getUsername());
-		result.setParticipant(a);
 
 		return result;
 	}
@@ -105,12 +102,6 @@ public class AuthenticatedParticipationCreateService implements AbstractCreateSe
 
 	@Override
 	public void create(final Request<Participation> request, final Participation entity) {
-		String username;
-		Authenticated participant;
-
-		username = entity.getUsername();
-		participant = this.repository.findOneAuthenticatedByUsername(username);
-		entity.setParticipant(participant);
 
 		this.repository.save(entity);
 	}
