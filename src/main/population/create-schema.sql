@@ -26,6 +26,7 @@
     create table `application` (
        `id` integer not null,
         `version` integer not null,
+        `justification` varchar(1024),
         `moment` datetime(6),
         `qualifications` varchar(1024),
         `reference` varchar(255),
@@ -99,8 +100,9 @@
         `brand` varchar(255),
         `credit_card_number` varchar(255),
         `cvv` varchar(255),
-        `expiration_date` datetime(6),
         `holder` varchar(255),
+        `month` integer,
+        `year` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -124,6 +126,19 @@
         `user_account_id` integer,
         `company` varchar(255),
         `sector` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `credit_card` (
+       `id` integer not null,
+        `version` integer not null,
+        `brand` varchar(255),
+        `credit_card_number` varchar(255),
+        `cvv` varchar(255),
+        `holder` varchar(255),
+        `month` integer,
+        `year` integer,
+        `sponsor_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -176,7 +191,7 @@
        `id` integer not null,
         `version` integer not null,
         `deadline` datetime(6),
-        `description` varchar(255),
+        `description` varchar(1024),
         `more_info` varchar(255),
         `reference` varchar(255),
         `salary_amount` double precision,
@@ -225,6 +240,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `participation` (
+       `id` integer not null,
+        `version` integer not null,
+        `username` varchar(255),
+        `participant_id` integer not null,
+        `thread_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `provider` (
        `id` integer not null,
         `version` integer not null,
@@ -264,8 +288,9 @@
         `company` varchar(255),
         `credit_card_number` varchar(255),
         `cvv` varchar(255),
-        `expiration_date` datetime(6),
         `holder` varchar(255),
+        `month` integer,
+        `year` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -274,7 +299,6 @@
         `version` integer not null,
         `moment` datetime(6),
         `title` varchar(255),
-        `users` varchar(255),
         `creator_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
@@ -311,6 +335,9 @@ create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
 create index IDXof878cqun8l1ynh0ao94bw3au on `audit_record` (`status`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
+
+    alter table `credit_card` 
+       add constraint UK_4cr95y27s8ti6otoyflmma6oy unique (`sponsor_id`);
 
     alter table `descriptor` 
        add constraint UK_4iw18njo4d0q8gvnhe04vmctw unique (`job_id`);
@@ -388,6 +415,11 @@ create index IDX1e6yyalrv1ka0w3g229hjwy6o on `requesta` (`ticker`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `credit_card` 
+       add constraint `FK31l5hvh7p1nx1aw6v649gw3rc` 
+       foreign key (`sponsor_id`) 
+       references `sponsor` (`id`);
+
     alter table `descriptor` 
        add constraint `FKgfulfilmwi4hhaquiu7fr5g0g` 
        foreign key (`job_id`) 
@@ -422,6 +454,16 @@ create index IDX1e6yyalrv1ka0w3g229hjwy6o on `requesta` (`ticker`);
        add constraint FK_2l8gpcwh19e7jj513or4r9dvb 
        foreign key (`sponsor_id`) 
        references `sponsor` (`id`);
+
+    alter table `participation` 
+       add constraint `FKl3oifwo53p0xo35t6hlositwc` 
+       foreign key (`participant_id`) 
+       references `authenticated` (`id`);
+
+    alter table `participation` 
+       add constraint `FKk6j425rhm4ahsi6cf2bg2um4l` 
+       foreign key (`thread_id`) 
+       references `thread` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 

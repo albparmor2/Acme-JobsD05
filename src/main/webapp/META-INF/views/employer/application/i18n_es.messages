@@ -11,14 +11,21 @@
 employer.application.form.label.reference = Referencia:
 employer.application.form.label.moment = Momento:
 employer.application.form.label.status = Estado:
+employer.application.form.label.justification = Justificación:
 employer.application.form.label.statement = Declaración:
 employer.application.form.label.skills = Habilidades:
 employer.application.form.label.qualifications = Cualificaciones:
 employer.application.form.label.job.reference = Referencia del trabajo:
 employer.application.form.label.job.title = Título del trabajo:
 
+employer.job.form.button.update.accepted = Aceptar
+employer.application.form.label.reject = Rechazar
+employer.job.form.button.confirm = Confirmar
 employer.application.form.button.return = Volver
 
 employer.application.list.label.reference = Referencia
 employer.application.list.label.status = Estado
 employer.application.list.label.job.reference = Referencia del trabajo
+employer.application.list.label.moment = Momento
+
+employer.application.form.error.blankJust = La justificación no puede estar vacía

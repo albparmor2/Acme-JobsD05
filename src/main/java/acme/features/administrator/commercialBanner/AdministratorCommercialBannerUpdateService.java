@@ -43,7 +43,7 @@ public class AdministratorCommercialBannerUpdateService implements AbstractUpdat
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "url", "creditCardNumber", "holder", "brand", "expirationDate", "cvv");
+		request.unbind(entity, model, "picture", "slogan", "url", "creditCardNumber", "holder", "brand", "month", "year", "cvv");
 	}
 
 	@Override
@@ -68,8 +68,8 @@ public class AdministratorCommercialBannerUpdateService implements AbstractUpdat
 		Boolean correctFutureDate;
 		if (!errors.hasErrors("expirationDate")) {
 			Calendar calendar = new GregorianCalendar();
-			correctFutureDate = entity.getExpirationDate().after(calendar.getTime());
-			errors.state(request, correctFutureDate, "expirationDate", "acme.date.error.futureDate");
+			correctFutureDate = entity.expirationDate().after(calendar.getTime());
+			errors.state(request, correctFutureDate, "year", "acme.date.error.futureDate");
 		}
 	}
 

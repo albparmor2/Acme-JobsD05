@@ -43,6 +43,10 @@
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
 
+    alter table `credit_card` 
+       drop 
+       foreign key `FK31l5hvh7p1nx1aw6v649gw3rc`;
+
     alter table `descriptor` 
        drop 
        foreign key `FKgfulfilmwi4hhaquiu7fr5g0g`;
@@ -70,6 +74,14 @@
     alter table `non_commercial_banner` 
        drop 
        foreign key FK_2l8gpcwh19e7jj513or4r9dvb;
+
+    alter table `participation` 
+       drop 
+       foreign key `FKl3oifwo53p0xo35t6hlositwc`;
+
+    alter table `participation` 
+       drop 
+       foreign key `FKk6j425rhm4ahsi6cf2bg2um4l`;
 
     alter table `provider` 
        drop 
@@ -111,6 +123,8 @@
 
     drop table if exists `consumer`;
 
+    drop table if exists `credit_card`;
+
     drop table if exists `customisation`;
 
     drop table if exists `descriptor`;
@@ -128,6 +142,8 @@
     drop table if exists `non_commercial_banner`;
 
     drop table if exists `offer`;
+
+    drop table if exists `participation`;
 
     drop table if exists `provider`;
 

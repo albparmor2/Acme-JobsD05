@@ -1,0 +1,25 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.participation.form.label.participant.username = Username:
+authenticated.participation.form.label.participant.name = Name:
+authenticated.participation.form.label.participant.surname = Surname:
+authenticated.participation.form.label.username = Username:
+
+authenticated.participation.form.button.create = Add participant
+authenticated.participation.form.button.delete = Delete participant
+authenticated.thread.form.button.return  = Return
+
+authenticated.participation.list.label.participant.username = Username
+authenticated.participation.list.label.participant.name = Name
+
+authenticated.participation.error.creator = You are trying to add the thread creator. It is already a participant
+authenticated.participation.error.dontExistAuthenticated = There is no a user with that username
+authenticated.participation.error.isAlreadyParticipant = The user is already participant
