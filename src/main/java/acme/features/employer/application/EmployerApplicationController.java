@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import acme.components.CustomCommand;
 import acme.entities.applications.Application;
 import acme.entities.roles.Employer;
-import acme.entities.roles.Worker;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
@@ -19,15 +18,23 @@ import acme.framework.controllers.AbstractController;
 public class EmployerApplicationController extends AbstractController<Employer, Application> {
 
 	@Autowired
-	private EmployerApplicationShowService		showService;
+	private EmployerApplicationShowService				showService;
 
 	@Autowired
-	private EmployerApplicationListMineService	listMineService;
+	private EmployerApplicationListMineService			listMineService;
+
+	@Autowired
+	private EmployerApplicationUpdateAcceptedService	updateAcceptedService;
+
+	@Autowired
+	private EmployerApplicationUpdateRejectedService	updateRejectedService;
 
 
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
+		super.addCustomCommand(CustomCommand.UPDATE_ACCEPTED, BasicCommand.UPDATE, this.updateAcceptedService);
+		super.addCustomCommand(CustomCommand.UPDATE_REJECTED, BasicCommand.UPDATE, this.updateRejectedService);
 	}
 }

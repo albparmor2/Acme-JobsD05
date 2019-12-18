@@ -1,3 +1,4 @@
+
 /*
  * CustomCommand.java
  *
@@ -15,5 +16,5 @@ package acme.components;
 import acme.framework.components.Command;
 
 public enum CustomCommand implements Command {
-	LIST_MINE, LIST_NOT_MINE, UPDATE_PUBLISH
+	LIST_MINE, LIST_NOT_MINE, UPDATE_PUBLISH, UPDATE_ACCEPTED, UPDATE_REJECTED
 }

@@ -13,6 +13,9 @@ employer.duty.form.label.description = Descripción:
 employer.duty.form.label.percentage = Porcentaje:
 
 employer.duty.form.button.return = Volver
+employer.duty.form.button.create = Crear
+employer.duty.form.button.update = Editar
+employer.duty.form.button.delete = Borrar
 
 employer.duty.list.label.title = Título
 employer.duty.list.label.percentage = Porcentaje

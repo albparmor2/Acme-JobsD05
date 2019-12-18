@@ -16,6 +16,7 @@ worker.job.form.label.moreInfo = Más info:
 worker.job.form.label.description = Descripción:
 worker.job.form.label.duty = Deberes
 worker.job.form.label.auditRecord = Registro de auditoria
+worker.job.form.label.application.create = Solicitar trabajo
 
 worker.job.form.button.return = Volver
 

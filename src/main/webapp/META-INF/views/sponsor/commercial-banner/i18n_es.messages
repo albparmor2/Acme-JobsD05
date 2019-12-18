@@ -14,7 +14,8 @@ sponsor.commercial-banner.form.label.url = Url:
 sponsor.commercial-banner.form.label.creditCardNumber = Número de tarjeta de crédito:
 sponsor.commercial-banner.form.label.holder = Propietario:
 sponsor.commercial-banner.form.label.brand = Marca tarjeta:
-sponsor.commercial-banner.form.label.expirationDate = Fecha de expiración:
+sponsor.commercial-banner.form.label.month = Mes:
+sponsor.commercial-banner.form.label.year = Año:
 sponsor.commercial-banner.form.label.cvv = CVV:
 sponsor.commercial-banner.form.button.return = Volver
 

@@ -1,0 +1,28 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.sponsor.sponsor.form.title.create = Hazte patrocinador
+authenticated.sponsor.sponsor.form.title.update = Actualizar datos de patrocinador
+
+authenticated.sponsor.form.label.company = Compañía: 
+
+authenticated.sponsor.form.label.creditCardNumber = Número de la tarjeta de crédito:
+authenticated.sponsor.form.label.holder = Propietario:
+authenticated.sponsor.form.label.brand = Marca:
+authenticated.sponsor.form.label.month = Mes:
+authenticated.sponsor.form.label.year = Año:
+authenticated.sponsor.form.label.cvv = cvv:
+
+sponsor.form.label.creditCard.create = Crear tarjeta de crédito
+sponsor.form.label.creditCard.update = Actualizar tarjeta de crédito
+
+authenticated.sponsor.form.button.create = Registrar
+authenticated.sponsor.form.button.update = Actualizar
+authenticated.sponsor.form.button.return = Volver

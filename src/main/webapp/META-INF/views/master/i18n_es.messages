@@ -47,6 +47,7 @@ master.menu.authenticated.offers = Ofertas
 master.menu.authenticated.challenges = Retos
 master.menu.authenticated.jobs = Trabajos activos
 master.menu.authenticated.threads = Hilos
+master.menu.authenticated.thread.create = Crear hilo
 
 # master.menu.administrator ###################################################
 
@@ -95,6 +96,7 @@ master.menu.auditor.other-jobs = Trabajos sin registros de auditorías míos
 
 master.menu.employer = Empleador
 master.menu.employer.job.list-mine = Mis trabajos
+master.menu.employer.job.create = Crear trabajo
 master.menu.employer.application.list-mine = Lista de solicitudes de mis trabajos
 
 # master.menu.worker ##########################################################
@@ -112,6 +114,12 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.sponsor = Datos de patrocinador
+master.menu.user-account.become-sponsor = Hazte patrocinador
+master.menu.user-account.worker = Datos de trabajador
+master.menu.user-account.become-worker = Hazte trabajador
+master.menu.user-account.employer = Datos del empleador
+master.menu.user-account.become-employer = Hazte empleador
 
 ﻿# master.footer ###############################################################
 
