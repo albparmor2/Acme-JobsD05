@@ -29,7 +29,7 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 		Principal principal;
 
 		cbId = request.getModel().getInteger("id");
-		cb = this.repository.findOneById(cbId);
+		cb = this.repository.findOneCommercialBannerById(cbId);
 		sponsor = cb.getSponsor();
 		principal = request.getPrincipal();
 		result = sponsor.getUserAccount().getId() == principal.getAccountId();
@@ -54,7 +54,7 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findOneCommercialBannerById(id);
 
 		return result;
 	}

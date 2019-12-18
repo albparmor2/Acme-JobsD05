@@ -1,6 +1,9 @@
 
 package acme.features.sponsor.creditCard;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,6 +64,8 @@ public class SponsorCreditCardUpdateService implements AbstractUpdateService<Spo
 		assert entity != null;
 		assert errors != null;
 
+		Calendar cal = new GregorianCalendar();
+		errors.state(request, entity.expirationDate().after(cal.getTime()), "year", "sponsor.error.form.creditCard.date");
 	}
 
 	@Override

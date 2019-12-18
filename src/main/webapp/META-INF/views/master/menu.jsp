@@ -76,7 +76,12 @@
 		
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
 		 <acme:menu-suboption code="master.menu.sponsor.commercial-banner" action="/sponsor/commercial-banner/list"/>
+		 <acme:menu-suboption code="master.menu.sponsor.commercial-banner.create" action="/sponsor/commercial-banner/create"/>
+		 <acme:menu-separator/>
          <acme:menu-suboption code="master.menu.sponsor.non-commercial-banner" action="/sponsor/non-commercial-banner/list"/>
+         <acme:menu-suboption code="master.menu.sponsor.non-commercial-banner.create" action="/sponsor/non-commercial-banner/create"/>
+         
+        
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
