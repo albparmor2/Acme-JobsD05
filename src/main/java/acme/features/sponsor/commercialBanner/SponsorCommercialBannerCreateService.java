@@ -77,9 +77,11 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 
 		CreditCard c = this.repository.findCreditCardBySponsorId(request.getPrincipal().getAccountId());
 		errors.state(request, c != null, "*", "sponsor.error.form.commercial-banner.creditCard");
-		Date d = c.expirationDate();
-		Calendar cal = new GregorianCalendar();
-		errors.state(request, d.after(cal.getTime()), "year", "sponsor.error.form.commercial-banner.creditCard.date");
+		if (c != null) {
+			Date d = c.expirationDate();
+			Calendar cal = new GregorianCalendar();
+			errors.state(request, d.after(cal.getTime()), "year", "sponsor.error.form.commercial-banner.creditCard.date");
+		}
 
 		Customisation cu = this.repository.findCustomisation();
 		String spamWords = cu.getSpamWord();

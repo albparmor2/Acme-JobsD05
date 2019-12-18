@@ -17,12 +17,26 @@
 
 <acme:form>
 	<input type="hidden" name="jobId" id="jobId" value="${param.jobId}"/>
+	
+	<jstl:if test="${status=='Published'}">
+	<acme:form-textbox code="auditor.audit-record.form.label.title" path="title" readonly="true"/>
+	</jstl:if>
+	<jstl:if test="${status!='Published'}">
 	<acme:form-textbox code="auditor.audit-record.form.label.title" path="title"/>
+	</jstl:if>
+	
 	<jstl:if test="${command != 'create'}">
 	<acme:form-textbox code="auditor.audit-record.form.label.status" path="status" readonly="true"/>
 	<acme:form-moment code="auditor.audit-record.form.label.creation" path="creation" readonly="true"/>
 	</jstl:if>
+	
+	<jstl:if test="${status=='Published'}">
+	<acme:form-textbox code="auditor.audit-record.form.label.body" path="body" readonly="true"/>
+	</jstl:if>
+	<jstl:if test="${status!='Published'}">
 	<acme:form-textbox code="auditor.audit-record.form.label.body" path="body"/>
+	</jstl:if>
+	
 	<jstl:if test="${command != 'create'}">
 	<acme:form-textbox code="auditor.audit-record.form.label.job.reference" path="job.reference" readonly="true"/>
 	<acme:form-textbox code="auditor.audit-record.form.label.job.title" path="job.title" readonly="true"/>
@@ -38,8 +52,6 @@
 	action="/auditor/audit-record/update"/>
 	<acme:form-submit test="${command == 'create'}" code="auditor.audit-record.form.button.create"
 	action="/auditor/audit-record/create"/>
-	<acme:form-submit test="${command == 'update' && status=='Draft'}" code="auditor.audit-record.form.button.update"
-	action="/auditor/audit-record/update"/>
 	<acme:form-submit test="${command == 'delete'}" code="auditor.audit-record.form.button.delete"
 	action="/auditor/audit-record/delete"/>
 	<acme:form-submit test="${command == 'update-publish' && status=='Draft'}" code="auditor.audit-record.form.button.update-publish"

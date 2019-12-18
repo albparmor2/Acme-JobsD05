@@ -65,7 +65,7 @@
         `firm` varchar(255),
         `responsibility_statement` varchar(1024),
         `status` integer,
-        `authenticated_id` integer,
+        `authenticated_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 

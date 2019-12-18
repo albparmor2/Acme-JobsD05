@@ -84,6 +84,8 @@ public class AuthenticatedAuditorRequestCreateService implements AbstractCreateS
 
 		result = new AuditorRequest();
 		result.setAuthenticated(authenticated);
+
+		result.setStatus(Status.Pending);
 		return result;
 	}
 
@@ -99,7 +101,6 @@ public class AuthenticatedAuditorRequestCreateService implements AbstractCreateS
 		assert request != null;
 		assert entity != null;
 
-		entity.setStatus(Status.Pending);
 		this.repository.save(entity);
 	}
 

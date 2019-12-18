@@ -63,8 +63,10 @@ public class SponsorCreditCardCreateService implements AbstractCreateService<Spo
 		assert entity != null;
 		assert errors != null;
 
-		Calendar cal = new GregorianCalendar();
-		errors.state(request, entity.expirationDate().after(cal.getTime()), "year", "sponsor.error.form.creditCard.date");
+		if (!errors.hasErrors("year") && !errors.hasErrors("month")) {
+			Calendar cal = new GregorianCalendar();
+			errors.state(request, entity.expirationDate().after(cal.getTime()), "year", "sponsor.error.form.creditCard.date");
+		}
 	}
 
 	@Override
