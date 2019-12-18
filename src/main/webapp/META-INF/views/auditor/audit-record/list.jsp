@@ -18,5 +18,4 @@
 <acme:list>
 	<acme:list-column code="auditor.audit-record.list.label.title" path="title" width="50%"/>
 	<acme:list-column code="auditor.audit-record.list.label.creation" path="creation" width="50%"/>
-	
 </acme:list>

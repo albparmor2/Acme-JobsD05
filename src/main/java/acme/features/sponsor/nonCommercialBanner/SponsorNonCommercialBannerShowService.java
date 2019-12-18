@@ -28,7 +28,7 @@ public class SponsorNonCommercialBannerShowService implements AbstractShowServic
 		Principal principal;
 
 		ncbId = request.getModel().getInteger("id");
-		ncb = this.repository.findOneById(ncbId);
+		ncb = this.repository.findOneNonCommercialBannerById(ncbId);
 		sponsor = ncb.getSponsor();
 		principal = request.getPrincipal();
 		result = sponsor.getUserAccount().getId() == principal.getAccountId();
@@ -54,7 +54,7 @@ public class SponsorNonCommercialBannerShowService implements AbstractShowServic
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findOneNonCommercialBannerById(id);
 
 		return result;
 	}

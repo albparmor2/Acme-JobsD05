@@ -1,6 +1,9 @@
 
 package acme.features.sponsor.creditCard;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +25,9 @@ public class SponsorCreditCardCreateService implements AbstractCreateService<Spo
 	public boolean authorise(final Request<CreditCard> request) {
 		assert request != null;
 
-		return true;
+		CreditCard cc = this.repository.findCreditCardBySponsorId(request.getPrincipal().getAccountId());
+
+		return cc == null;
 	}
 
 	@Override
@@ -58,6 +63,8 @@ public class SponsorCreditCardCreateService implements AbstractCreateService<Spo
 		assert entity != null;
 		assert errors != null;
 
+		Calendar cal = new GregorianCalendar();
+		errors.state(request, entity.expirationDate().after(cal.getTime()), "year", "sponsor.error.form.creditCard.date");
 	}
 
 	@Override

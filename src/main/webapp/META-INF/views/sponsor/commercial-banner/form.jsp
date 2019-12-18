@@ -19,12 +19,25 @@
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.picture" path="picture"/>
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.slogan" path="slogan"/>
 	<acme:form-url code="sponsor.commercial-banner.form.label.url" path="url"/>
-	<acme:form-textbox code="sponsor.commercial-banner.form.label.creditCardNumber" path="creditCardNumber"/>
-	<acme:form-textbox code="sponsor.commercial-banner.form.label.holder" path="holder"/>
-	<acme:form-textbox code="sponsor.commercial-banner.form.label.brand" path="brand"/>
-	<acme:form-textbox code="sponsor.commercial-banner.form.label.month" path="month"/>
-	<acme:form-textbox code="sponsor.commercial-banner.form.label.year" path="year"/>
-	<acme:form-textbox code="sponsor.commercial-banner.form.label.cvv" path="cvv"/>
+	<acme:form-textbox code="sponsor.commercial-banner.form.label.creditCardNumber" path="creditCardNumber" readonly="true"/>
+	<acme:form-textbox code="sponsor.commercial-banner.form.label.holder" path="holder" readonly="true"/>
+	<acme:form-textbox code="sponsor.commercial-banner.form.label.brand" path="brand" readonly="true"/>
+	<acme:form-textbox code="sponsor.commercial-banner.form.label.month" path="month" readonly="true"/>
+	<acme:form-textbox code="sponsor.commercial-banner.form.label.year" path="year" readonly="true"/>
+	<acme:form-textbox code="sponsor.commercial-banner.form.label.cvv" path="cvv" readonly="true"/>
+	
+	
+	
+	<acme:form-submit test="${command == 'show'}" code="sponsor.commercial-banner.form.button.update"
+	action="/sponsor/commercial-banner/update"/>
+	<acme:form-submit test="${command == 'show'}" code="sponsor.commercial-banner.form.button.delete"
+	action="/sponsor/commercial-banner/delete"/>
+	<acme:form-submit test="${command == 'create'}" code="sponsor.commercial-banner.form.button.create"
+	action="/sponsor/commercial-banner/create"/>
+	<acme:form-submit test="${command == 'update'}" code="sponsor.commercial-banner.form.button.update"
+	action="/sponsor/commercial-banner/update"/>
+	<acme:form-submit test="${command == 'delete'}" code="sponsor.commercial-banner.form.button.delete"
+	action="/sponsor/commercial-banner/delete"/>
 	
 	
 	<acme:form-return code="sponsor.commercial-banner.form.button.return"/>
